@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
     </list>
@@ -14,6 +14,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Cedric &lt;0322012@student.rocvantwente.nl&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gVMLOJjRi8BwhULntHdsgcL1I8" />
@@ -37,14 +42,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598195249529</updated>
-      <workItem from="1598195250747" duration="1801000" />
+      <workItem from="1598195250747" duration="2186000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update index.php and README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update index.php and README.md" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="583" y="20" key="CommitChangelistDialog2" timestamp="1598197114250">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="583" y="20" key="CommitChangelistDialog2/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1598197114250" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1598195353338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
