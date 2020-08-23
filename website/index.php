@@ -22,13 +22,6 @@
 
     <!--    Functional tags-->
     <title>Het PlatenHuis</title>
-    <!--    TODO
-                   - newsletter?
-                   - pagina's invullen
-                   - koffie drinken
-                   - nog meer koffie drinken
-    -->
-
     <style>
 
         body {
@@ -159,7 +152,7 @@
                         </a></li>
                     <li class="list-inline-item">&nbsp;<a href="mailto:info@hetplatenhuis.nl">
                             <button class="btn btn-primary btn-lg btn-default" type="button"><i
-                                        class="fa fa-envelope-o fa-fw"></i><span class="network-name">&nbsp; email</span>
+                                        class="fa fa-envelope-o fa-fw"></i><span class="network-name" style="font-size: 15px;">&nbsp; email</span>
                             </button>
                         </a></li>
                     <br><br>
