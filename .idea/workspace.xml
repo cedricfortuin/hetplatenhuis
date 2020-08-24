@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md" />
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/ds-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/ds-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/elo-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/elo-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/fs-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/fs-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/gm-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/gm-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/normaal-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/normaal-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/pf-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/pf-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/prince-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/prince-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/queen-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/queen-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/bands/supertramp-banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/bands/supertramp-banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/music-cafe.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/music-cafe.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/music-wall.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/music-wall.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/old-cd.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/old-cd.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/record-close.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/record-close.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/record-holding.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/record-holding.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/record-laptop.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/record-laptop.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/record-top.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/record-top.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/recordplayer-close-arm.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/recordplayer-close-arm.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/recordplayer-close.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/recordplayer-close.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/recordplayer-really-close-arm.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/recordplayer-really-close-arm.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/recordplayer-really-close.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/recordplayer-really-close.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/vinyl-close.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/vinyl-close.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/vinyl-lamp.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/vinyl-lamp.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/vinyl-really-close.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/vinyl-really-close.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/custom/vinyl-sideways.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/custom/vinyl-sideways.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/downloads-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/downloads-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/functional/download.png" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/functional/download.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/functional/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/functional/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/functional/song.png" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/functional/song.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/intro-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/intro-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/platen/elo-ootb.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/platen/elo-ootb.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/img/platen/pink-floyd-wywh.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/img/platen/pink-floyd-wywh.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/js/grayscale.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/assets/js/jquery.min.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +64,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gVMLOJjRi8BwhULntHdsgcL1I8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,8 +76,13 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website" />
     <property name="settings.editor.selected.configurable" value="discord-application" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cedri\Documents\hetplatenhuis\website" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -40,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598195249529</updated>
       <workItem from="1598195250747" duration="2186000" />
-      <workItem from="1598266654154" duration="881000" />
+      <workItem from="1598266654154" duration="4238000" />
     </task>
     <servers />
   </component>
