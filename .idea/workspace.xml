@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598195249529</updated>
       <workItem from="1598195250747" duration="2186000" />
+      <workItem from="1598266654154" duration="881000" />
     </task>
     <servers />
   </component>
