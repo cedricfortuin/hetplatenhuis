@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md" />
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,14 +14,18 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Term1" />
-      </map>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Cedric &lt;info@cedricfortuin.com&gt;" />
+        <option value="Cedric &lt;0322012@student.rocvantwente.nl&gt;" />
+      </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gVMLOJjRi8BwhULntHdsgcL1I8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,8 +35,13 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website" />
     <property name="settings.editor.selected.configurable" value="discord-application" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cedri\Documents\hetplatenhuis\website" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -39,14 +51,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598195249529</updated>
-      <workItem from="1598195250747" duration="1801000" />
+      <workItem from="1598195250747" duration="2186000" />
+      <workItem from="1598266654154" duration="7345000" />
     </task>
+    <task id="LOCAL-00001" summary="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space.">
+      <created>1598272171945</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598272171945</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update index.php and README.md" />
+    <MESSAGE value="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space." />
+    <option name="LAST_COMMIT_MESSAGE" value="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space." />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1598272170413">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="583" y="20" key="CommitChangelistDialog2/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1598197114250" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1536.824/-1920.0.1920.1080@0.0.1536.824" timestamp="1598272170413" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1598195353338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
