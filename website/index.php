@@ -11,6 +11,7 @@
     <meta name="keywords"
           content="Platen, muziek, Pink Floyd, ELO, Prince, albums, Dire Straits, Supertramp, vinyl, Queen, Normaal, George Michael, Michael Jackson, Eminem, lp, cd, cassette">
     <meta name="author" content="Cedric Fortuin">
+    <meta name="google-site-verification" content="3RtN2T3y_4YVjvsdhceBu4iNetvqlKrhQX089BeY7Eg" />
 
     <!--    Link tags-->
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
