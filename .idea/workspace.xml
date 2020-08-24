@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="Update index.php and README.md">
       <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Brothers-In-Arms.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Brothers-In-Arms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Dire-Straits.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Dire-Straits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Meddle.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Meddle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Out-Of-The-Blue.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Out-Of-The-Blue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Wish-You-Were-Here.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Wish-You-Were-Here.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/bands.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/bands.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/blogs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +21,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Term1" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gVMLOJjRi8BwhULntHdsgcL1I8" />
