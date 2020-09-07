@@ -118,7 +118,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </div>
             </nav>
             <section class="content-section">
-                <?php include_once 'config.php';
+                <?php include_once '../config.php';
                 $result = mysqli_query($link, "SELECT * FROM users ORDER BY id ASC")
                 ?>
                 <div class="container">

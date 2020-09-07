@@ -86,7 +86,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="col-md-12 text-center">
                                 <section class="content-section" style="color: black;">
                                     <?php
-                                    include_once 'config.php';
+                                    include_once '../config.php';
                                     $sql = "DELETE FROM posts WHERE title='" . $_GET["title"] . "'";
 
                                     if (mysqli_query($link, $sql)) {

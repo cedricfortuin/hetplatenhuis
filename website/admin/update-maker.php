@@ -156,7 +156,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </section>
             <br><br>
             <section class="content-section">
-                <?php include_once 'config.php';
+                <?php include_once '../config.php';
                 $result = mysqli_query($link, "SELECT * FROM posts ORDER BY id DESC")
                 ?>
                 <div class="container">

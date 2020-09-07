@@ -110,7 +110,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <?php
                     /* Attempt MySQL server connection. Assuming you are running MySQL
                     server with default setting (user 'root' with no password) */
-                    $link = mysqli_connect('localhost:3306', 'ADMIN_C', 'Cedric2001', 'database_1');
+                    include_once '../config.php';
 
                     // Check connection
                     if ($link === false) {

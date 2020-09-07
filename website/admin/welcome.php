@@ -137,7 +137,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <div class="row">
                             <div class="col-lg-6"><br>
                                 <?php
-                                include_once('config.php');
+                                include_once('../config.php');
                                 $resultsong = mysqli_query($link, "SELECT * FROM songofday ORDER BY id DESC");
                                 $row = mysqli_fetch_array($resultsong);
                                 ?>

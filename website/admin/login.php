@@ -8,25 +8,26 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     exit;
 }
 
-// Include config file
-require_once "config.php";
+// Include config file from the root directory
+require_once "../config.php";
 
-// Define variables and initialize with empty values
+// Set the variables to empty
 $username = $password = $firstname = "";
 $username_err = $password_err = $firstname_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Check if username is empty
+    // Check if email is empty
     if (empty(trim($_POST["username"]))) {
-        $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
+        $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je email in.</div>";
     } else {
         $username = trim($_POST["username"]);
     }
 
+    // Check if username (firstname) is empty
     if (empty(trim($_POST["firstname"]))) {
-        $firstname_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je voornaam in.</div>";
+        $firstname_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
     } else {
         $firstname = trim($_POST["firstname"]);
     }
@@ -75,12 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             header("location: welcome.php");
                         } else {
                             // Display an error message if password is not valid
-                            $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of voornaam niet correct.</div>";
+                            $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
                         }
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $username_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of voornaam niet correct.</div>";
+                    $username_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
                 }
             } else {
                 echo "<div class='alert alert-danger text-center'>Oops! Something went wrong. Please try again later.</div>";
@@ -96,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 
 <head>
     <meta charset="utf-8">
@@ -129,26 +130,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <h4 class="modal-title text-center">Login met je admin account</h4><br>
                                         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                            <input type="text" name="username" class="form-control"
+                                            <input id="email-label" type="text" name="username" class="form-control"
                                                    placeholder="Email">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" name="firstname" class="form-control"
+                                        <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
+                                            <input id="username-label" type="text" name="firstname" class="form-control"
                                                    placeholder="Gebruikersnaam">
                                         </div>
                                         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                            <input type="password" name="password" class="form-control"
+                                            <input id="password-label" type="password" name="password"
+                                                   class="form-control"
                                                    placeholder="Wachtwoord">
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login"><br>
+                                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+                                        <div class="text-sm-center"><br>
+                                            <a href="mailto:administrator@hetplatenhuis.nl">Wachtwoord vergeten?</a>
+                                        </div>
+                                        <br>
                                         <p class="help-block text-center"
                                            style="color:red;"><?php echo $username_err; ?></p>
                                         <p class="help-block text-center"
                                            style="color:red;"><?php echo $password_err; ?></p>
                                         <h6 class="text-center">Geen admin? <a href="https://hetplatenhuis.nl">Terug
-                                                naar de site</a><br><small class="text-center">Gemaakt door <a
-                                                        href="https://github.com/cedricfortuin" target="_blank">Cedric
-                                                    Fortuin</a></small></h6>
+                                                naar de site</a>
                                     </form>
                                 </div>
                             </div>

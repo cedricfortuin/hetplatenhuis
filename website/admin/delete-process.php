@@ -110,7 +110,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <div class="container">
                         <div class="col-md-12 mx-auto">
                            <?php
-                                include_once 'config.php';
+                                include_once '../config.php';
                                 $sql = "DELETE FROM songofday WHERE songname='" . $_GET["songname"] . "'";
 
                                 if (mysqli_query($link, $sql)) {

@@ -146,7 +146,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         </div>
                         <div class="col-lg-12"><br>
                             <?php
-                            include_once('config.php');
+                            include_once('../config.php');
                             $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY id DESC")
                             ?>
                             <p>Het laatste nummer van de dag</p>
