@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24-8-2020_10_01_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24-8-2020_10_01__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/delete-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/delete-admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/delete-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/delete-posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/delete-process.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/delete-process.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/huidige-profielen.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/huidige-profielen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/inject-blogpost.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/inject-blogpost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/inject-songofday.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/inject-songofday.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/register-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/register-handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/songofday.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/songofday.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/update-maker.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/update-maker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/welcome.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/blogs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/config.php" beforeDir="false" />
-    </list>
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +57,7 @@
       <workItem from="1599501165960" duration="968000" />
       <workItem from="1599509294655" duration="100000" />
       <workItem from="1599510072305" duration="606000" />
-      <workItem from="1599510699463" duration="1202000" />
+      <workItem from="1599510699463" duration="1315000" />
     </task>
     <task id="LOCAL-00001" summary="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space.">
       <created>1598272171945</created>
