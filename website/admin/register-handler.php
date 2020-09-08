@@ -1,6 +1,11 @@
 <?php
 // Include config file
-require_once "config.php";
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
+require_once "../config.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = $firstname = $lastname = "";
@@ -14,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "Please enter a username.";
     } else {
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT USER_ID FROM users WHERE USERNAME = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -79,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($firstname_err) && empty($lastname_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password, firstname, lastname) VALUES (?, ?, ? , ?)";
+        $sql = "INSERT INTO users (USERNAME, PASSWORD, FIRSTNAME, LASTNAME) VALUES (?, ?, ? , ?)";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -89,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_username = $username;
             $param_firstname = $firstname;
             $param_lastname = $lastname;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_password = password_hash($password, PASSWORD_BCRYPT); // Creates a password hash
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {

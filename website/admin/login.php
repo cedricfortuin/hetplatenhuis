@@ -1,34 +1,42 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: welcome.php");
+    header("location: index.php");
     exit;
 }
 
-// Include config file
-require_once "config.php";
+// Include config file from the root directory
+require_once "../config.php";
 
-// Define variables and initialize with empty values
-$username = $password = $firstname = "";
-$username_err = $password_err = $firstname_err = "";
+// Set the variables to empty
+$email = $password = $username = "";
+$email_err = $password_err = $username_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Check if username is empty
+    // Check if email is empty
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je email in.</div>";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+/*ToDo
+ *  - edit and update the naming and referring
+ * */
+    // Check if username (firstname) is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
     } else {
         $username = trim($_POST["username"]);
-    }
-
-    if (empty(trim($_POST["firstname"]))) {
-        $firstname_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je voornaam in.</div>";
-    } else {
-        $firstname = trim($_POST["firstname"]);
     }
 
     // Check if password is empty
@@ -39,17 +47,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate credentials
-    if (empty($username_err) && empty($password_err) && empty($firstname_err)) {
+    if (empty($username_err) && empty($password_err) && empty($email_err)) {
         // Prepare a select statement
-        $sql = "SELECT id, username, firstname, password FROM users WHERE username = ? AND firstname = ?";
+        $sql = "SELECT USER_ID, USERNAME, FIRSTNAME, PASSWORD FROM users WHERE USERNAME = ? AND FIRSTNAME = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_firstname);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_email);
 
             // Set parameters
             $param_username = $username;
-            $param_firstname = $firstname;
+            $param_email = $email;
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
@@ -59,28 +67,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if username exists, if yes then verify password
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $firstname, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $email, $hashed_password);
                     if (mysqli_stmt_fetch($stmt)) {
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session
                             session_start();
 
                             // Store data in session variables
+                            // This creates cookies which make logging in and using the admin panel, working
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
-                            $_SESSION['firstname'] = $firstname;
+                            $_SESSION["email"] = $email;
+                            $_SESSION['username'] = $username;
 
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: index.php");
                         } else {
                             // Display an error message if password is not valid
-                            $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of voornaam niet correct.</div>";
+                            $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
                         }
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $username_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of voornaam niet correct.</div>";
+                    $email_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
                 }
             } else {
                 echo "<div class='alert alert-danger text-center'>Oops! Something went wrong. Please try again later.</div>";
@@ -96,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 
 <head>
     <meta charset="utf-8">
@@ -129,26 +138,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <h4 class="modal-title text-center">Login met je admin account</h4><br>
                                         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                            <input type="text" name="username" class="form-control"
+                                            <input id="email-label" type="text" name="email" class="form-control"
                                                    placeholder="Email">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" name="firstname" class="form-control"
+                                        <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
+                                            <input id="username-label" type="text" name="username" class="form-control"
                                                    placeholder="Gebruikersnaam">
                                         </div>
                                         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                            <input type="password" name="password" class="form-control"
+                                            <input id="password-label" type="password" name="password"
+                                                   class="form-control"
                                                    placeholder="Wachtwoord">
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login"><br>
+                                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+                                        <div class="text-sm-center"><br>
+                                            <a href="mailto:administrator@hetplatenhuis.nl">Wachtwoord vergeten?</a>
+                                        </div>
+                                        <br>
                                         <p class="help-block text-center"
                                            style="color:red;"><?php echo $username_err; ?></p>
                                         <p class="help-block text-center"
                                            style="color:red;"><?php echo $password_err; ?></p>
+                                        <p class="help-block text-center"
+                                           style="color:red;"><?php echo $email_err; ?></p>
                                         <h6 class="text-center">Geen admin? <a href="https://hetplatenhuis.nl">Terug
-                                                naar de site</a><br><small class="text-center">Gemaakt door <a
-                                                        href="https://github.com/cedricfortuin" target="_blank">Cedric
-                                                    Fortuin</a></small></h6>
+                                                naar de site</a>
                                     </form>
                                 </div>
                             </div>

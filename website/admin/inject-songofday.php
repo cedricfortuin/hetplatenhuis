@@ -1,5 +1,10 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -15,7 +20,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>ADDED - <?php echo $_SESSION['firstname'] ?></title>
+    <title>ADDED - <?php echo $_SESSION['username'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -57,7 +62,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="welcome.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
@@ -87,7 +92,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['firstname']; ?><p
+                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
@@ -110,7 +115,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <?php
                     /* Attempt MySQL server connection. Assuming you are running MySQL
                     server with default setting (user 'root' with no password) */
-                    $link = mysqli_connect('localhost:3306', 'ADMIN_C', 'Cedric2001', 'database_1');
+                    include_once '../config.php';
 
                     // Check connection
                     if ($link === false) {
@@ -120,10 +125,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     // Escape user inputs for security
                     $first_name = mysqli_real_escape_string($link, $_REQUEST['song']);
                     $last_name = mysqli_real_escape_string($link, $_REQUEST['band']);
-                    $email = mysqli_real_escape_string($link, $_REQUEST['spotify']);
+                    $spotify_link = mysqli_real_escape_string($link, $_REQUEST['spotify']);
+                    $song_reason = mysqli_real_escape_string($link, $_REQUEST['reason']);
 
                     // Attempt insert query execution
-                    $sql = "INSERT INTO songofday (songname, songartist, spotifylink) VALUES ('$first_name', '$last_name', '$email')";
+                    $sql = "INSERT INTO songofday (SONG_NAME, SONG_ARTIST, SPOTIFY_LINK, SONG_REASON) VALUES ('$first_name', '$last_name', '$spotify_link', '$song_reason')";
                     if (mysqli_query($link, $sql)) {
                         echo "<div class='col-md-10 mx-auto alert alert-success text-center'>Het nummer is succesvol toegevoegd. Ga terug.</div>";
                     } else {
@@ -136,12 +142,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </section>
             </div>
         </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
+            </div>
+        </footer>
     </div>
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
-        </div>
-    </footer>
     <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/bootstrap/js/bootstrap.min.js"></script>

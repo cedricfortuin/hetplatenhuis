@@ -1,5 +1,10 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -15,7 +20,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>DELETED - <?php echo $_SESSION['firstname'] ?></title>
+    <title>DELETED - <?php echo $_SESSION['username'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -57,7 +62,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="welcome.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
@@ -87,7 +92,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo "Welkom " . $_SESSION['firstname']; ?><p
+                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
@@ -110,13 +115,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <div class="container">
                         <div class="col-md-12 mx-auto">
                            <?php
-                                include_once 'config.php';
-                                $sql = "DELETE FROM songofday WHERE songname='" . $_GET["songname"] . "'";
+                                include_once '../config.php';
+                                $sql = "DELETE FROM songofday WHERE SONG_NAME='" . $_GET["SONG_NAME"] . "'";
 
                                 if (mysqli_query($link, $sql)) {
                                     echo "<div class='col-md-10 mx-auto alert alert-success text-center'>Het nummer is succesvol verwijderd. Ga terug.</div>";
                                 } else {
-                                    echo "Fuck you " . mysqli_error($link);
+                                    echo "Oops, something went wrong: " . mysqli_error($link);
                                 }
 
                                 mysqli_close($link);
@@ -134,13 +139,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </section>
             </div>
         </div>
-
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
+            </div>
+        </footer>
     </div>
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
-        </div>
-    </footer>
     <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
 <script src="./assets/js/jquery.min.js"></script>
 <script src="./assets/bootstrap/js/bootstrap.min.js"></script>

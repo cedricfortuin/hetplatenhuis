@@ -1,5 +1,10 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -57,7 +62,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="welcome.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
@@ -110,7 +115,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <?php
                     /* Attempt MySQL server connection. Assuming you are running MySQL
                     server with default setting (user 'root' with no password) */
-                    $link = mysqli_connect('localhost:3306', 'ADMIN_C', 'Cedric2001', 'database_1');
+                    include_once '../config.php';
 
                     // Check connection
                     if ($link === false) {
@@ -119,11 +124,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
                     // Escape user inputs for security
                     $title = mysqli_real_escape_string($link, $_REQUEST['title']);
-                    $author = mysqli_real_escape_string($link, $_REQUEST['text']);
-                    $text = mysqli_real_escape_string($link, $_REQUEST['author']);
+                    $author = mysqli_real_escape_string($link, $_REQUEST['author']);
+                    $text = mysqli_real_escape_string($link, $_REQUEST['text']);
 
                     // Attempt insert query execution
-                    $sql = "INSERT INTO posts (title, author, text) VALUES ('$title', '$author', '$text')";
+                    $sql = "INSERT INTO posts (POST_TITLE, POST_AUTHOR, POST_TEXT) VALUES ('$title', '$author', '$text')";
                     if (mysqli_query($link, $sql)) {
                         echo "<div class='col-md-10 mx-auto alert alert-success text-center'>De update is succesvol toegevoegd. Ga terug.</div>";
                     } else {
