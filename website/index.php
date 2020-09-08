@@ -122,11 +122,16 @@
                     <tbody>
                     <tr>
                         <td scope="row"><?php echo $row["SONG_NAME"] . " - " . $row["SONG_ARTIST"]; ?></td>
-                        <br>
+                        <br/>
                     </tr>
                     <tr>
                         <td>
                             <?php echo $row["SPOTIFY_LINK"]; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?php echo $row["SONG_REASON"]; ?>
                         </td>
                     </tr>
                     </tbody>
