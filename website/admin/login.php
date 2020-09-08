@@ -12,24 +12,26 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 require_once "../config.php";
 
 // Set the variables to empty
-$username = $password = $firstname = "";
-$username_err = $password_err = $firstname_err = "";
+$email = $password = $username = "";
+$email_err = $password_err = $username_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if email is empty
     if (empty(trim($_POST["username"]))) {
-        $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je email in.</div>";
+        $email_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je email in.</div>";
     } else {
-        $username = trim($_POST["username"]);
+        $email = trim($_POST["username"]);
     }
-
+/*ToDo
+ *  - edit and update the naming and referring
+ * */
     // Check if username (firstname) is empty
     if (empty(trim($_POST["firstname"]))) {
-        $firstname_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
+        $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
     } else {
-        $firstname = trim($_POST["firstname"]);
+        $username = trim($_POST["firstname"]);
     }
 
     // Check if password is empty
@@ -40,17 +42,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate credentials
-    if (empty($username_err) && empty($password_err) && empty($firstname_err)) {
+    if (empty($username_err) && empty($password_err) && empty($email_err)) {
         // Prepare a select statement
         $sql = "SELECT id, username, firstname, password FROM users WHERE username = ? AND firstname = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_firstname);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_email);
 
             // Set parameters
             $param_username = $username;
-            $param_firstname = $firstname;
+            $param_email = $email;
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
@@ -60,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if username exists, if yes then verify password
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $firstname, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $email, $hashed_password);
                     if (mysqli_stmt_fetch($stmt)) {
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session
@@ -69,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
-                            $_SESSION['firstname'] = $firstname;
+                            $_SESSION["username"] = $email;
+                            $_SESSION['firstname'] = $username;
 
                             // Redirect user to welcome page
                             header("location: welcome.php");
@@ -81,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $username_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
+                    $email_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
                 }
             } else {
                 echo "<div class='alert alert-danger text-center'>Oops! Something went wrong. Please try again later.</div>";
@@ -151,6 +153,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                            style="color:red;"><?php echo $username_err; ?></p>
                                         <p class="help-block text-center"
                                            style="color:red;"><?php echo $password_err; ?></p>
+                                        <p class="help-block text-center"
+                                           style="color:red;"><?php echo $email_err; ?></p>
                                         <h6 class="text-center">Geen admin? <a href="https://hetplatenhuis.nl">Terug
                                                 naar de site</a>
                                     </form>
