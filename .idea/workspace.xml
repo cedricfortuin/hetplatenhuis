@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/inject-blogpost.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/inject-blogpost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/update-maker.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/update-maker.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/pages/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/blogs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

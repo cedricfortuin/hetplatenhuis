@@ -29,9 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $email = trim($_POST["email"]);
     }
-/*ToDo
- *  - edit and update the naming and referring
- * */
     // Check if username (firstname) is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
@@ -77,8 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // This creates cookies which make logging in and using the admin panel, working
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $email;
-                            $_SESSION['username'] = $username;
+                            $_SESSION["email"] = $username;
+                            $_SESSION["username"] = $email;
 
                             // Redirect user to welcome page
                             header("location: index.php");
@@ -138,17 +135,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <h4 class="modal-title text-center">Login met je admin account</h4><br>
                                         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                                            <label for="email-label">Gebruikersnaam</label>
                                             <input id="email-label" type="text" name="email" class="form-control"
-                                                   placeholder="Email">
+                                                   placeholder="" autocomplete="off">
                                         </div>
                                         <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
+                                            <label for="username-label">Email</label>
                                             <input id="username-label" type="text" name="username" class="form-control"
-                                                   placeholder="Gebruikersnaam">
+                                                   placeholder="" autocomplete="off">
                                         </div>
                                         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                                            <label for="password-label">Wachtwoord</label>
                                             <input id="password-label" type="password" name="password"
                                                    class="form-control"
-                                                   placeholder="Wachtwoord">
+                                                   placeholder="" autocomplete="off">
                                         </div>
                                         <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
                                         <div class="text-sm-center"><br>

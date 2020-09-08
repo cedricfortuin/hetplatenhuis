@@ -81,9 +81,9 @@
                     <tbody style="color: white;">
                     <tr>
                         <td><?php echo $row["POST_TITLE"]; ?></td>
-                        <td><?php echo $row["POST_TEXT"]; ?></td>
-                        <td><?php echo $row["UPLOAD_DATE"]; ?></td>
                         <td><?php echo $row["POST_AUTHOR"]; ?></td>
+                        <td><?php echo $row["UPLOAD_DATE"]; ?></td>
+                        <td><?php echo $row["POST_TEXT"]; ?></td>
                     </tr>
                     <?php
                     $i++;

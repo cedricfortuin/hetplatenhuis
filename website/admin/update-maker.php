@@ -148,7 +148,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail">Tekst om weer te geven</label>
-                                        <textarea style="resize: none;height: 250px; width: auto;" type="text" class="form-control" name="text"
+                                        <textarea style="resize: none;height: 250px;" type="text" class="form-control" name="text"
                                                   id="inputEmail" autocomplete="off"></textarea>
                                     </div>
                                 </div>
@@ -183,9 +183,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <tbody style="color: black">
                                 <tr>
                                     <td><?php echo $row["POST_TITLE"]; ?></td>
-                                    <td><?php echo $row["POST_TEXT"]; ?></td>
-                                    <td><?php echo $row["UPLOAD_DATE"]; ?></td>
                                     <td><?php echo $row["POST_AUTHOR"]; ?></td>
+                                    <td><?php echo $row["UPLOAD_DATE"]; ?></td>
+                                    <td><?php echo $row["POST_TEXT"]; ?></td>
                                     <td><a style="color: darkgreen;"
                                            href="delete-posts.php?POST_TITLE=<?php echo $row["POST_TITLE"]; ?>">Verwijderen</a>
                                     </td>

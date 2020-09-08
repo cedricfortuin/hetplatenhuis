@@ -153,7 +153,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                     </tr>
                                     <tbody>
                                     <tr>
-                                        <td scope="row"><?php echo $row["SONG_DATE"] ?></td>
+                                        <td scope="row"><?php echo $row["SONG_NAME"] ?></td>
                                         <td scope="row">
                                             <?php echo $row["UPLOAD_DATE"]; ?>
                                         </td>
