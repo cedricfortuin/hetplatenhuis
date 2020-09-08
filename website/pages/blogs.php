@@ -62,7 +62,7 @@
 </header>
 <section id="blogs" class="content-section">
     <?php include_once '../config.php';
-    $result = mysqli_query($link, "SELECT * FROM posts ORDER BY id DESC")
+    $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC")
     ?>
     <div class="container">
         <div class="row">
@@ -80,10 +80,10 @@
                     ?>
                     <tbody style="color: white;">
                     <tr>
-                        <td><?php echo $row["title"]; ?></td>
-                        <td><?php echo $row["text"]; ?></td>
-                        <td><?php echo $row["date"]; ?></td>
-                        <td><?php echo $row["author"]; ?></td>
+                        <td><?php echo $row["POST_TITLE"]; ?></td>
+                        <td><?php echo $row["POST_TEXT"]; ?></td>
+                        <td><?php echo $row["UPLOAD_DATE"]; ?></td>
+                        <td><?php echo $row["POST_AUTHOR"]; ?></td>
                     </tr>
                     <?php
                     $i++;
