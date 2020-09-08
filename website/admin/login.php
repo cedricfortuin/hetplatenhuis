@@ -1,10 +1,15 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: welcome.php");
+    header("location: index.php");
     exit;
 }
 
@@ -19,19 +24,19 @@ $email_err = $password_err = $username_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if email is empty
-    if (empty(trim($_POST["username"]))) {
+    if (empty(trim($_POST["email"]))) {
         $email_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je email in.</div>";
     } else {
-        $email = trim($_POST["username"]);
+        $email = trim($_POST["email"]);
     }
 /*ToDo
  *  - edit and update the naming and referring
  * */
     // Check if username (firstname) is empty
-    if (empty(trim($_POST["firstname"]))) {
+    if (empty(trim($_POST["username"]))) {
         $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
     } else {
-        $username = trim($_POST["firstname"]);
+        $username = trim($_POST["username"]);
     }
 
     // Check if password is empty
@@ -44,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($username_err) && empty($password_err) && empty($email_err)) {
         // Prepare a select statement
-        $sql = "SELECT id, username, firstname, password FROM users WHERE username = ? AND firstname = ?";
+        $sql = "SELECT USER_ID, USERNAME, FIRSTNAME, PASSWORD FROM users WHERE USERNAME = ? AND FIRSTNAME = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -69,13 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             session_start();
 
                             // Store data in session variables
+                            // This creates cookies which make logging in and using the admin panel, working
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $email;
-                            $_SESSION['firstname'] = $username;
+                            $_SESSION["email"] = $email;
+                            $_SESSION['username'] = $username;
 
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: index.php");
                         } else {
                             // Display an error message if password is not valid
                             $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
@@ -132,11 +138,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <h4 class="modal-title text-center">Login met je admin account</h4><br>
                                         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                            <input id="email-label" type="text" name="username" class="form-control"
+                                            <input id="email-label" type="text" name="email" class="form-control"
                                                    placeholder="Email">
                                         </div>
                                         <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
-                                            <input id="username-label" type="text" name="firstname" class="form-control"
+                                            <input id="username-label" type="text" name="username" class="form-control"
                                                    placeholder="Gebruikersnaam">
                                         </div>
                                         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">

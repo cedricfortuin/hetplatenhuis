@@ -1,5 +1,10 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -15,7 +20,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>NUMMER V/D DAG - <?php echo $_SESSION['firstname'] ?></title>
+    <title>NUMMER V/D DAG - <?php echo $_SESSION['username'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -57,7 +62,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="welcome.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
@@ -87,7 +92,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['firstname']; ?><p
+                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
@@ -124,9 +129,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                    autocomplete="off">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="inputCompany">Band of Artiest</label>
+                                            <label for="inputArtist">Band of Artiest</label>
                                             <input type="text" class="form-control" name="band"
-                                                   id="inputCompany" autocomplete="on">
+                                                   id="inputArtist" autocomplete="on">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputCompany">Reden van upload</label>
+                                            <textarea type="text" class="form-control" name="reason"
+                                                      id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -147,7 +157,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <div class="col-lg-12"><br>
                             <?php
                             include_once('../config.php');
-                            $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY id DESC")
+                            $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY SONG_ID DESC")
                             ?>
                             <p>Het laatste nummer van de dag</p>
                             <table class="table" style="color:black;">
@@ -164,12 +174,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 ?>
                                 <tbody style="color: black;">
                                 <tr>
-                                    <td><?php echo $row["id"]; ?></td>
-                                    <td><?php echo $row["songname"]; ?></td>
-                                    <td><?php echo $row["songartist"]; ?></td>
-                                    <td><?php echo $row["uploaddate"]; ?></td>
+                                    <td><?php echo $row["SONG_ID"]; ?></td>
+                                    <td><?php echo $row["SONG_NAME"]; ?></td>
+                                    <td><?php echo $row["SONG_ARTIST"]; ?></td>
+                                    <td><?php echo $row["UPLOAD_DATE"]; ?></td>
                                     <td><a style="color: darkgreen;"
-                                           href="delete-process.php?songname=<?php echo $row["songname"]; ?>">Verwijderen</a>
+                                           href="delete-song.php?SONG_ID=<?php echo $row["SONG_ID"]?>">Verwijderen</a>
                                     </td>
                                 </tr>
                                 <?php

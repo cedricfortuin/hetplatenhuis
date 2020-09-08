@@ -1,5 +1,10 @@
 <?php
 // Initialize the session
+
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -14,7 +19,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>UPDATES - <?php echo $_SESSION['firstname'] ?></title>
+    <title>UPDATES - <?php echo $_SESSION['username'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -56,7 +61,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link" href="welcome.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
@@ -102,7 +107,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['firstname']; ?><p
+                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
@@ -143,7 +148,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail">Tekst om weer te geven</label>
-                                        <textarea style="resize: none;" type="text" class="form-control" name="text"
+                                        <textarea style="resize: none;height: 250px; width: auto;" type="text" class="form-control" name="text"
                                                   id="inputEmail" autocomplete="off"></textarea>
                                     </div>
                                 </div>
@@ -156,8 +161,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </section>
             <br><br>
             <section class="content-section">
-                <?php include_once '../config.php';
-                $result = mysqli_query($link, "SELECT * FROM posts ORDER BY id DESC")
+                <?php
+                include_once '../config.php';
+                $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC")
                 ?>
                 <div class="container">
                     <div class="row">
@@ -176,12 +182,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 ?>
                                 <tbody style="color: black">
                                 <tr>
-                                    <td><?php echo $row["title"]; ?></td>
-                                    <td><?php echo $row["text"]; ?></td>
-                                    <td><?php echo $row["date"]; ?></td>
-                                    <td><?php echo $row["author"]; ?></td>
+                                    <td><?php echo $row["POST_TITLE"]; ?></td>
+                                    <td><?php echo $row["POST_TEXT"]; ?></td>
+                                    <td><?php echo $row["UPLOAD_DATE"]; ?></td>
+                                    <td><?php echo $row["POST_AUTHOR"]; ?></td>
                                     <td><a style="color: darkgreen;"
-                                           href="delete-posts.php?title=<?php echo $row["title"]; ?>">Verwijderen</a>
+                                           href="delete-posts.php?POST_TITLE=<?php echo $row["POST_TITLE"]; ?>">Verwijderen</a>
                                     </td>
                                 </tr>
                                 <?php

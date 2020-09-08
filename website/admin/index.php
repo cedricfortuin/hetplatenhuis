@@ -1,4 +1,8 @@
 <?php
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+
 // Initialize the session
 session_start();
 
@@ -16,7 +20,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
-    <title>DASHBOARD - <?php echo $_SESSION['firstname'] ?></title>
+    <title>DASHBOARD - <?php echo $_SESSION['username'] ?></title>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -33,7 +37,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             m = checkTime(m);
             s = checkTime(s);
             document.getElementById('time-home').innerHTML =
-                d + "/" + mo + "/" + y + " - " + h + ":" + m + ":" + s;
+                d + "/" + mo + "/" + y + "  " + h + ":" + m + ":" + s;
             let t = setTimeout(startTime, 500);
         }
 
@@ -41,7 +45,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             if (i < 10) {
                 i = "0" + i
             }
-            ;
             return i;
         }
     </script>
@@ -57,7 +60,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="welcome.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
@@ -89,7 +92,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo "Welkom " . $_SESSION['firstname']; ?></span></a>
+                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $_SESSION['username']; ?></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                                     <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
@@ -114,7 +117,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
                                     <h3 class="text-dark mb-0">Dashboard</h3>
                                 </div>
-                                <p>Welkom bij het admin-paneel. Hier kun je als admin het volgende doen: </p>
+                                <p><?php echo "Welkom " . $_SESSION['username']; ?> bij het admin-paneel. Hier kun je
+                                    als admin het volgende doen: </p>
                                 <ul>
                                     <li>Het <a style="color: darkgreen;" href="songofday.php">nummer van
                                             de dag</a>
@@ -138,27 +142,27 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="col-lg-6"><br>
                                 <?php
                                 include_once('../config.php');
-                                $resultsong = mysqli_query($link, "SELECT * FROM songofday ORDER BY id DESC");
+                                $resultsong = mysqli_query($link, "SELECT * FROM songofday ORDER BY SONG_ID DESC");
                                 $row = mysqli_fetch_array($resultsong);
                                 ?>
                                 <p>Het laatste nummer van de dag</p>
                                 <table class="table" style="color: black">
                                     <tr>
-                                        <th scope="col">Item</th>
+                                        <th scope="col">Nummer</th>
                                         <th scope="col">Datum</th>
                                     </tr>
                                     <tbody>
                                     <tr>
-                                        <td scope="row"><?php echo $row["songname"] ?></td>
+                                        <td scope="row"><?php echo $row["SONG_DATE"] ?></td>
                                         <td scope="row">
-                                            <?php echo $row["uploaddate"]; ?>
+                                            <?php echo $row["UPLOAD_DATE"]; ?>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <?php include_once 'config.php';
-                            $result = mysqli_query($link, "SELECT * FROM posts ORDER BY id DESC");
+                            $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC");
                             ?>
                             <div class="col-lg-6"><br>
                                 <p>De laatste update op de website</p>
@@ -172,8 +176,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                     ?>
                                     <tbody style="color: black;">
                                     <tr>
-                                        <td><?php echo $row["title"]; ?></td>
-                                        <td><?php echo $row["date"]; ?></td>
+                                        <td><?php echo $row["POST_TITLE"]; ?></td>
+                                        <td><?php echo $row["UPLOAD_DATE"]; ?></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -193,7 +197,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
+                <div class="text-center my-auto copyright"><span>Copyright © 2020 bij Het Platenhuis</span></div>
             </div>
         </footer>
     </div>

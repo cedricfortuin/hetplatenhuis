@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="nl">
 
+
+<!--TODO
+        - Eline https://w3schools.com/ sturen
+        - pushen
+-->
+
 <head>
     <!--    ©Cedric Fortuin || 2020-->
     <!--    Meta tags-->
@@ -110,17 +116,17 @@
                 <table class="table table-borderless" style="color: white">
                     <?php
                     include_once('config.php');
-                    $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY id DESC");
+                    $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY SONG_ID DESC");
                     $row = mysqli_fetch_array($result)
                     ?>
                     <tbody>
                     <tr>
-                        <td scope="row"><?php echo $row["songname"] . " - " . $row["songartist"]; ?></td>
+                        <td scope="row"><?php echo $row["SONG_NAME"] . " - " . $row["SONG_ARTIST"]; ?></td>
                         <br>
                     </tr>
                     <tr>
                         <td>
-                            <?php echo $row["spotifylink"]; ?>
+                            <?php echo $row["SPOTIFY_LINK"]; ?>
                         </td>
                     </tr>
                     </tbody>
@@ -206,7 +212,7 @@
                 www.flaticon.com</a></small>
         <small> || Foto's van <a href="https://unsplash.com/images/stock/non-copyrighted" target="_blank">UnSplash</a>
             (no copyright)</small><br>
-        <small><a href="./admin/welcome.php">Naar de admin pagina</a></small>
+        <small><a href="admin/index.php">Naar de admin pagina</a></small>
     </div>
 </footer>
 </body>
