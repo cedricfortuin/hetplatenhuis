@@ -8,7 +8,7 @@ session_start();
 include '../config.php';
 
 $newsql = mysqli_query($link,  "SELECT * FROM users WHERE USER_ID ='". $_SESSION['id'] ."'");
-$calc = mysqli_fetch_array($newsql);
+$username = mysqli_fetch_array($newsql);
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
@@ -24,7 +24,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
-    <title>DASHBOARD - <?php echo $calc['USER_FIRSTNAME']; ?></title>
+    <title>DASHBOARD - <?php echo $username['USER_FIRSTNAME']; ?></title>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -98,7 +98,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $calc['USER_FIRSTNAME']; ?></span></a>
+                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $username['USER_FIRSTNAME']; ?></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                                     <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
@@ -123,7 +123,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
                                     <h3 class="text-dark mb-0">Dashboard</h3>
                                 </div>
-                                <p><?php echo "Welkom " . $calc['USER_FIRSTNAME']; ?> bij het admin-paneel. Hier kun je
+                                <p><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?> bij het admin-paneel. Hier kun je
                                     als admin het volgende doen: </p>
                                 <ul>
                                     <li>Het <a style="color: darkgreen;" href="songofday.php">nummer van

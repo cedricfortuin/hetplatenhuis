@@ -11,7 +11,22 @@ session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
-} ?>
+}
+
+include_once '../config.php';
+
+$result = mysqli_query($link, "SELECT * FROM users");
+
+while($role = mysqli_fetch_array($result)) {
+    $allowed = $role['USER_ROLE'];
+    if ($allowed == 1) {
+        header('location: toevoegen.php');
+    } else {
+        header('location: index.php');
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -45,7 +60,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             if (i < 10) {
                 i = "0" + i
             }
-            ;
             return i;
         }
     </script>
@@ -135,25 +149,29 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <form action="register-handler.php" method="post">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label>Voornaam</label>
-                                        <input type="text" name="firstname" autocomplete="off" class="form-control">
+                                        <label for="firstname">Voornaam</label>
+                                        <input id="firstname" type="text" name="firstname" autocomplete="off" class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Achternaam</label>
-                                        <input type="text" name="lastname" autocomplete="off" class="form-control">
+                                        <label for="lastname">Achternaam</label>
+                                        <input id="lastname" type="text" name="lastname" autocomplete="off" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Gebruikersnaam</label>
-                                    <input type="text" name="username" autocomplete="off" class="form-control">
+                                    <label for="username">Gebruikersnaam</label>
+                                    <input id="username" type="text" name="username" autocomplete="off" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Wachtwoord</label>
-                                    <input type="password" name="password" autocomplete="off" class="form-control">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="text" name="email" autocomplete="off" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Bevestig wachtwoord</label>
-                                    <input type="password" name="confirm_password" autocomplete="off"
+                                    <label for="password">Wachtwoord</label>
+                                    <input id="password" type="password" name="password" autocomplete="off" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-confirm">Bevestig wachtwoord</label>
+                                    <input id="password-confirm" type="password" name="confirm_password" autocomplete="off"
                                            class="form-control">
                                 </div>
                                 <div class="form-group">

@@ -8,8 +8,8 @@
 require_once "../config.php";
 
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = $firstname = $lastname = "";
-$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = "";
+$username = $password = $confirm_password = $firstname = $lastname = $email = "";
+$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $email = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

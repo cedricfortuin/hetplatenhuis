@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html lang="nl">
-
-
-<!--TODO
-        - Eline https://w3schools.com/ sturen
-        - pushen
--->
-
 <head>
     <!--    ©Cedric Fortuin || 2020-->
     <!--    Meta tags-->
