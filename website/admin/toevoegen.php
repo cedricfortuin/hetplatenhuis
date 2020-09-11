@@ -13,17 +13,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-include_once '../config.php';
-
-$result = mysqli_query($link, "SELECT * FROM users");
-
-while($role = mysqli_fetch_array($result)) {
-    $allowed = $role['USER_ROLE'];
-    if ($allowed == 1) {
-        header('location: toevoegen.php');
-    } else {
-        header('location: index.php');
-    }
+if ($_SESSION["user_role"] !== 1) {
+    header("location: index.php");
+    exit;
 }
 
 ?>

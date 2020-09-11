@@ -3,10 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/register-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/register-handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/toevoegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/toevoegen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/delete-admin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/delete-posts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/delete-song.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/edit-profiles.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/huidige-profielen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/inject-blogpost.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/inject-songofday.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/newsletter-users.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/register-handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/songofday.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/toegevoegd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/toevoegen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/update-maker.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/Wish-You-Were-Here.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Wish-You-Were-Here.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/bands.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/bands.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/blogs.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +30,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -36,6 +58,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -44,6 +67,11 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\hetplatenhuis\website\admin\pages" />
+      <recent name="C:\xampp\htdocs\hetplatenhuis\website\admin\[added] pages" />
+      <recent name="C:\xampp\htdocs\hetplatenhuis\website\admin\[deleted] pages" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cedri\Documents\hetplatenhuis\website" />
     </key>
@@ -72,6 +100,7 @@
       <workItem from="1599756482493" duration="5922000" />
       <workItem from="1599770678293" duration="928000" />
       <workItem from="1599811915062" duration="734000" />
+      <workItem from="1599846437387" duration="50000" />
     </task>
     <task id="LOCAL-00001" summary="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space.">
       <created>1598272171945</created>
@@ -95,6 +124,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="395" y="91" key="#Inspections" timestamp="1599824908310">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="91" key="#Inspections/0.0.1536.824/-1920.-729.1920.1040/0.-1080.1920.1040@0.0.1536.824" timestamp="1599824908310" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599807279183">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
