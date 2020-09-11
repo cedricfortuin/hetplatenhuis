@@ -5,6 +5,10 @@
  * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
  */
 
+include_once '../config.php';
+
+
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -13,11 +17,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-if ($_SESSION["user_role"] !== 1) {
-    header("location: index.php");
-    exit;
+if($_SESSION['id'] != 1)
+{
+    header("location:index.php");
+    die();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +140,7 @@ if ($_SESSION["user_role"] !== 1) {
                                 <h3 class="text-dark mb-0">Gebruiker aanmaken</h3>
                             </div>
                             <div>
-                                <p>Maak hier een nieuwe gebruiker aan <br><small>Eerst overleggen</small></p>
+                                <p>Maak hier een nieuwe gebruiker aan</p>
                             </div>
                             <form action="register-handler.php" method="post">
                                 <div class="row">

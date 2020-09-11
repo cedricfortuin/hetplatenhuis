@@ -114,32 +114,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 <section class="content-section" style="color: black;">
                     <div class="container">
                         <div class="col-md-12 mx-auto">
-                            <?php
-                            include_once '../config.php';
-                            if(count($_POST)>0) {
-                                mysqli_query($link,"UPDATE users set USER_ID='" . $_POST['userid'] . "', USER_FIRSTNAME ='" . $_POST['first_name'] . "', USER_LASTNAME ='" . $_POST['last_name'] . "', USERNAME ='" . $_POST['username'] . "' , USER_EMAIL='" . $_POST['email'] . "' WHERE USER_ID='" . $_POST['userid'] . "'");
-                                $message = "Record Modified Successfully";
-                                }
-                            $result = mysqli_query($link,"SELECT * FROM users WHERE USER_ID='" . $_GET['userid'] . "'");
-                            $row= mysqli_fetch_array($result);
-                            ?>
-                            Username: <br>
-                            <input type="hidden" name="userid" class="txtField" value="<?php echo $row['userid']; ?>">
-                            <input type="text" name="userid"  value="<?php echo $row['USER_ID']; ?>">
-                            <br>
-                            First Name: <br>
-                            <input type="text" name="first_name" class="txtField" value="<?php echo $row['USER_FIRSTNAME']; ?>">
-                            <br>
-                            Last Name :<br>
-                            <input type="text" name="last_name" class="txtField" value="<?php echo $row['USER_LASTNAME']; ?>">
-                            <br>
-                            Username:<br>
-                            <input type="text" name="city_name" class="txtField" value="<?php echo $row['USERNAME']; ?>">
-                            <br>
-                            Email:<br>
-                            <input type="text" name="email" class="txtField" value="<?php echo $row['USER_EMAIL']; ?>">
-                            <br>
-                            <input type="submit" name="submit" value="Submit" class="buttom">
+
 
                         </div>
                     </div>
@@ -147,7 +122,46 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
                         <div class="container">
                             <div class="row">
+                                <div class="col-md-12 mx-auto">
+                                    <div class="login-form">
+                                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                            <h3 class="text-dark mb-0">Gebruiker aanpassen</h3>
+                                        </div>
+                                        <div>
+                                            <p><?php echo 'Je staat op het punt om <i>' . $_GET['USER_FIRSTNAME'] . '</i> aan te passen. Dit heeft effect in de database!'?></p>
+                                        </div>
+                                        <form action="edit-profiles-handler.php" method="post">
+                                            <?php
+                                            include_once '../config.php';
+                                            $result = mysqli_query($link,"SELECT * FROM users WHERE USER_FIRSTNAME='" . $_GET['USER_FIRSTNAME'] . "'");
+                                            $row= mysqli_fetch_array($result);
 
+                                            $_SESSION['user-edit'] = $_GET['USER_FIRSTNAME'];
+                                            ?>
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="firstname">Voornaam</label>
+                                                    <input id="firstname" type="text" name="firstname-edit" autocomplete="off" class="form-control" placeholder="<?php echo $row['USER_FIRSTNAME']; ?>" value="<?php echo $row['USER_FIRSTNAME']; ?>">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="lastname">Achternaam</label>
+                                                    <input id="lastname" type="text" name="lastname-edit" autocomplete="off" class="form-control" placeholder="<?php echo $row['USER_LASTNAME']; ?>" value="<?php echo $row['USER_LASTNAME']; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="username">Gebruikersnaam</label>
+                                                <input id="username" type="text" name="username-edit" autocomplete="off" class="form-control" placeholder="<?php echo $row['USERNAME']; ?>" value="<?php echo $row['USERNAME']; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input id="email" type="text" name="email-edit" autocomplete="off" class="form-control" placeholder="<?php echo $row['USER_EMAIL']; ?>" value="<?php echo $row['USER_EMAIL']; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary" value="<?php echo $_GET['USER_FIRSTNAME'] . ' bewerken'?>">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>

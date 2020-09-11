@@ -11,7 +11,13 @@ session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
-} ?>
+}
+if ($_SESSION['id'] != 1) {
+    header("location:index.php");
+    die();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -156,7 +162,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                     <td><?php echo $row["USER_FIRSTNAME"]; ?></td>
                                     <td><?php echo $row["USER_LASTNAME"]; ?></td>
                                     <td><?php echo $row["USER_CREATED_AT"]; ?></td>
-                                    <td><p>Bewerken</p></td>
+                                    <td><a style="color : darkgreen;"
+                                           href="edit-profiles.php?USER_FIRSTNAME=<?php echo $row["USER_FIRSTNAME"]; ?>">Bewerken</a></td>
                                     <td><a style="color: darkgreen;"
                                            href="delete-admin.php?USER_ID=<?php echo $row["USER_ID"]; ?>">Verwijderen</a>
                                     </td>

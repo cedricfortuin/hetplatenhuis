@@ -220,7 +220,7 @@
                 www.flaticon.com</a></small>
         <small> || Foto's van <a href="https://unsplash.com/images/stock/non-copyrighted" target="_blank">UnSplash</a>
             (no copyright)</small><br>
-        <small><a href="admin/pages/index.php">Naar de admin pagina</a></small>
+        <small><a href="admin/index.php">Naar de admin pagina</a></small>
     </div>
 </footer>
 </body>
