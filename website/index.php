@@ -129,8 +129,8 @@
                             <?php echo $row["SPOTIFY_LINK"]; ?>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
+                    <tr class="row">
+                        <td class="col-md-6 mx-auto">
                             <?php echo $row["SONG_REASON"]; ?>
                         </td>
                     </tr>

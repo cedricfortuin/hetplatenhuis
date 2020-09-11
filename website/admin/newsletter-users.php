@@ -1,6 +1,4 @@
 <?php
-// Initialize the session
-
 /*
  * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
  */
@@ -62,17 +60,19 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
-                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                            class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
-                                class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="huidige-profielen.php"><i
-                                class="fas fa-user"></i><span>Profielen</span></a></li>
+                            class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
+                            class="fas fa-user"></i><span>Profielen</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="newsletter-users.php"><i
+                            class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
-                                class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
-                                                                                   href="songofday.php"><i
-                                class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
-                                                                                                href="logout.php"><i
-                                class="far fa-user-circle"></i><span>Logout</span></a></li>
+                            class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
+                                                                               href="songofday.php"><i
+                            class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
+                                                                                            href="logout.php"><i
+                            class="far fa-user-circle"></i><span>Logout</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -84,7 +84,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid">
                     <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i
-                                class="fas fa-bars"></i></button>
+                            class="fas fa-bars"></i></button>
                     <ul class="nav navbar-nav flex-nowrap ml-auto">
                         <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                                                             data-toggle="dropdown" aria-expanded="false"
@@ -96,7 +96,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                                     type="text" placeholder="Search for ...">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary py-0" type="button"><i
-                                                        class="fas fa-search"></i></button>
+                                                    class="fas fa-search"></i></button>
                                         </div>
                                     </div>
                                 </form>
@@ -107,15 +107,15 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
-                                                id="time-home"></p></span></a>
+                                        class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
+                                            id="time-home"></p></span></a>
                                 <div
-                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                                    class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                                     <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
-                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profielen</a>
+                                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profielen</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" role="presentation" href="logout.php"><i
-                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -123,26 +123,24 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </div>
             </nav>
             <section class="content-section">
-                <?php include_once '../config.php';
-                $result = mysqli_query($link, "SELECT * FROM users ORDER BY USER_ID ASC")
+                <?php
+                include_once '../config.php';
+                $result = mysqli_query($link, "SELECT * FROM newsletter ORDER BY USER_ID ASC")
                 ?>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 mx-auto">
                             <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                <h3 class="text-dark mb-0">Profielen</h3>
+                                <h3 class="text-dark mb-0">Nieuwsbrief gebruikers</h3>
                             </div>
                             <div>
-                                <p>Zie hier de huidige gebruikers</p>
+                                <p>Zie hier de mensen die zijn geabonneerd op de nieuwsbrief</p>
                             </div>
                             <table class="table" style="color:black;">
                                 <tr>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Gebruikersnaam</th>
                                     <th scope="col">Voornaam</th>
-                                    <th scope="col">Achternaam</th>
                                     <th scope="col">Upload datum</th>
-                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                                 <?php
@@ -152,13 +150,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <tbody style="color: black;">
                                 <tr>
                                     <td><?php echo $row["USER_EMAIL"]; ?></td>
-                                    <td><?php echo $row["USERNAME"]; ?></td>
-                                    <td><?php echo $row["USER_FIRSTNAME"]; ?></td>
-                                    <td><?php echo $row["USER_LASTNAME"]; ?></td>
-                                    <td><?php echo $row["USER_CREATED_AT"]; ?></td>
-                                    <td><p>Bewerken</p></td>
+                                    <td><?php echo $row["USER_NAME"]; ?></td>
+                                    <td><?php echo $row["USER_ADDED"]; ?></td>
                                     <td><a style="color: darkgreen;"
-                                           href="delete-admin.php?USER_ID=<?php echo $row["USER_ID"]; ?>">Verwijderen</a>
+                                           href="delete-admin.php?USER_EMAIL=<?php echo $row["USER_EMAIL"]; ?>">Verwijderen</a>
                                     </td>
                                 </tr>
                                 <?php
@@ -170,6 +165,56 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="content-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Mail aanmaken</h3>
+                            </div>
+                            <div>
+                                <p>Stuur een nieuwe mail naar de mensen</p>
+                            </div>
+                            <div class="form">
+                                <form action="send-new-mail.php" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputName">Onderwerp</label>
+                                            <input type="text" class="form-control" name="mail-subject" id="inputName"
+                                                   autocomplete="off">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputArtist">Jouw naam</label>
+                                            <select class="form-control" name="admin-name"
+                                                    id="inputArtist" autocomplete="off">
+                                                <?php
+                                                include_once '../config.php';
+                                                $admin = mysqli_query($link, "SELECT FIRSTNAME FROM users ORDER BY USER_ID ASC");
+                                                $i = 0;
+                                                while ($admin_item = mysqli_fetch_array($admin)) {
+                                                ?>
+                                                <option value="<?php echo $admin_item["FIRSTNAME"]?>" name="<?php echo $admin_item["FIRSTNAME"]?>"><?php echo $admin_item["FIRSTNAME"]?></option>
+                                                    <?php
+                                                    $i++;
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputCompany">Bericht</label>
+                                            <textarea type="text" class="form-control" name="mail-text"
+                                                      id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Versturen</button>
+                                    <br>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
@@ -184,4 +229,3 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <script src="./assets/js/theme.js"></script>
 </body>
 
-</html>

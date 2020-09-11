@@ -1,14 +1,11 @@
 <?php
+// Initialize the session
+
 /*
  * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
  */
 
-// Initialize the session
 session_start();
-include '../config.php';
-
-$newsql = mysqli_query($link,  "SELECT * FROM users WHERE USER_ID ='". $_SESSION['id'] ."'");
-$calc = mysqli_fetch_array($newsql);
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
@@ -23,8 +20,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>EDIT PROFILE - <?php echo $_SESSION['username'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
-    <title>DASHBOARD - <?php echo $calc['USER_FIRSTNAME']; ?></title>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -41,7 +38,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             m = checkTime(m);
             s = checkTime(s);
             document.getElementById('time-home').innerHTML =
-                d + "/" + mo + "/" + y + "  " + h + ":" + m + ":" + s;
+                d + "/" + mo + "/" + y + " - " + h + ":" + m + ":" + s;
             let t = setTimeout(startTime, 500);
         }
 
@@ -49,6 +46,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             if (i < 10) {
                 i = "0" + i
             }
+            ;
             return i;
         }
     </script>
@@ -64,22 +62,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </a>
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link " href="huidige-profielen.php"><i
                                 class="fas fa-user"></i><span>Profielen</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
-                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
                                 class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
                                                                                    href="songofday.php"><i
                                 class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
                                                                                                 href="logout.php"><i
                                 class="far fa-user-circle"></i><span>Logout</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
-                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -98,7 +92,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $calc['USER_FIRSTNAME']; ?></span></a>
+                                            class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
+                                                id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                                     <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
@@ -118,76 +113,34 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                    <h3 class="text-dark mb-0">Dashboard</h3>
-                                </div>
-                                <p><?php echo "Welkom " . $calc['USER_FIRSTNAME']; ?> bij het admin-paneel. Hier kun je
-                                    als admin het volgende doen: </p>
-                                <ul>
-                                    <li>Het <a style="color: darkgreen;" href="songofday.php">nummer van
-                                            de dag</a>
-                                        toevoegen / verwijderen
-                                    </li>
-                                    <li>Een <a style="color: darkgreen;" href="update-maker.php">update</a> over de
-                                        website
-                                        toevoegen / verwijderen
-                                    </li>
-                                    <li>Een <a style="color: darkgreen;" href="toevoegen.php">nieuwe admin</a>
-                                        toevoegen
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 text-right">
-                                <h6>Datum en tijd: <br> <span id="time-home"></span></h6><br/>
-                            </div>
-                        </div>
-                        <br><br>
-                        <div class="row">
-                            <div class="col-lg-6"><br>
-                                <?php
-                                include_once('../config.php');
-                                $resultsong = mysqli_query($link, "SELECT * FROM songofday ORDER BY SONG_ID DESC");
-                                $row = mysqli_fetch_array($resultsong);
-                                ?>
-                                <p>Het laatste nummer van de dag</p>
-                                <table class="table" style="color: black">
-                                    <tr>
-                                        <th scope="col">Nummer</th>
-                                        <th scope="col">Datum</th>
-                                    </tr>
-                                    <tbody>
-                                    <tr>
-                                        <td scope="row"><?php echo $row["SONG_NAME"] ?></td>
-                                        <td scope="row">
-                                            <?php echo $row["UPLOAD_DATE"]; ?>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <?php include_once '../config.php';
-                            $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC");
+                        <div class="col-md-12 mx-auto">
+                            <?php
+                            include_once '../config.php';
+                            if(count($_POST)>0) {
+                                mysqli_query($link,"UPDATE users set USER_ID='" . $_POST['userid'] . "', USER_FIRSTNAME ='" . $_POST['first_name'] . "', USER_LASTNAME ='" . $_POST['last_name'] . "', USERNAME ='" . $_POST['username'] . "' , USER_EMAIL='" . $_POST['email'] . "' WHERE USER_ID='" . $_POST['userid'] . "'");
+                                $message = "Record Modified Successfully";
+                                }
+                            $result = mysqli_query($link,"SELECT * FROM users WHERE USER_ID='" . $_GET['userid'] . "'");
+                            $row= mysqli_fetch_array($result);
                             ?>
-                            <div class="col-lg-6"><br>
-                                <p>De laatste update op de website</p>
-                                <table class="table" style="color:black">
-                                    <tr>
-                                        <th scope="col">Titel</th>
-                                        <th scope="col">Datum</th>
-                                    </tr>
-                                    <?php
-                                    $row = mysqli_fetch_array($result)
-                                    ?>
-                                    <tbody style="color: black;">
-                                    <tr>
-                                        <td><?php echo $row["POST_TITLE"]; ?></td>
-                                        <td><?php echo $row["UPLOAD_DATE"]; ?></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            Username: <br>
+                            <input type="hidden" name="userid" class="txtField" value="<?php echo $row['userid']; ?>">
+                            <input type="text" name="userid"  value="<?php echo $row['USER_ID']; ?>">
+                            <br>
+                            First Name: <br>
+                            <input type="text" name="first_name" class="txtField" value="<?php echo $row['USER_FIRSTNAME']; ?>">
+                            <br>
+                            Last Name :<br>
+                            <input type="text" name="last_name" class="txtField" value="<?php echo $row['USER_LASTNAME']; ?>">
+                            <br>
+                            Username:<br>
+                            <input type="text" name="city_name" class="txtField" value="<?php echo $row['USERNAME']; ?>">
+                            <br>
+                            Email:<br>
+                            <input type="text" name="email" class="txtField" value="<?php echo $row['USER_EMAIL']; ?>">
+                            <br>
+                            <input type="submit" name="submit" value="Submit" class="buttom">
+
                         </div>
                     </div>
                     <section class="content-section">
@@ -203,7 +156,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © 2020 bij Het Platenhuis</span></div>
+                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
             </div>
         </footer>
     </div>

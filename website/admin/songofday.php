@@ -162,10 +162,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <p>Het laatste nummer van de dag</p>
                             <table class="table" style="color:black;">
                                 <tr>
-                                    <th scope="col">ID</th>
                                     <th scope="col">Naam</th>
                                     <th scope="col">Band of Artiest</th>
                                     <th scope="col">Upload datum</th>
+                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                                 <?php
@@ -174,10 +174,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 ?>
                                 <tbody style="color: black;">
                                 <tr>
-                                    <td><?php echo $row["SONG_ID"]; ?></td>
                                     <td><?php echo $row["SONG_NAME"]; ?></td>
                                     <td><?php echo $row["SONG_ARTIST"]; ?></td>
                                     <td><?php echo $row["UPLOAD_DATE"]; ?></td>
+                                    <td><p>Bewerken</p></td>
                                     <td><a style="color: darkgreen;"
                                            href="delete-song.php?SONG_ID=<?php echo $row["SONG_ID"]?>">Verwijderen</a>
                                     </td>

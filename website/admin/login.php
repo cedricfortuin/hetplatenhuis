@@ -17,18 +17,12 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 require_once "../config.php";
 
 // Set the variables to empty
-$email = $password = $username = "";
-$email_err = $password_err = $username_err = "";
+$password = $username = "";
+$password_err = $username_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Check if email is empty
-    if (empty(trim($_POST["email"]))) {
-        $email_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je email in.</div>";
-    } else {
-        $email = trim($_POST["email"]);
-    }
     // Check if username (firstname) is empty
     if (empty(trim($_POST["username"]))) {
         $username_err = "<div class='alert alert-warning text-center'><i class='fa fa-exclamation fa-fw'></i> Vul je gebruikersnaam in.</div>";
@@ -44,17 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate credentials
-    if (empty($username_err) && empty($password_err) && empty($email_err)) {
+    if (empty($username_err) && empty($password_err)) {
         // Prepare a select statement
-        $sql = "SELECT USER_ID, USERNAME, FIRSTNAME, PASSWORD FROM users WHERE USERNAME = ? AND FIRSTNAME = ?";
+        $sql = "SELECT USER_ID, USERNAME, USER_PASSWORD FROM users WHERE USERNAME = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_email);
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
 
             // Set parameters
             $param_username = $username;
-            $param_email = $email;
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
@@ -64,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if username exists, if yes then verify password
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $email, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if (mysqli_stmt_fetch($stmt)) {
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session
@@ -74,22 +67,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // This creates cookies which make logging in and using the admin panel, working
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $username;
-                            $_SESSION["username"] = $email;
+                            $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
                             header("location: index.php");
                         } else {
                             // Display an error message if password is not valid
-                            $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
+                            $password_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Gebruikersnaam of wachtwoord niet correct.</div>";
                         }
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $email_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Wachtwoord, gebruikersnaam of email niet correct.</div>";
+                    $username_err = "<div class='alert alert-danger text-center'><i class='fa fa-exclamation-triangle fa-fw'></i> Gebruikersnaam of wachtwoord niet correct.</div>";
                 }
             } else {
-                echo "<div class='alert alert-danger text-center'>Oops! Something went wrong. Please try again later.</div>";
+                echo "<div class='alert alert-danger text-center'>Oops! Something went wrong. Please try again later. O_o</div>";
             }
 
             // Close statement
@@ -136,12 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <h4 class="modal-title text-center">Login met je admin account</h4><br>
                                         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                                             <label for="email-label">Gebruikersnaam</label>
-                                            <input id="email-label" type="text" name="email" class="form-control"
-                                                   placeholder="" autocomplete="off">
-                                        </div>
-                                        <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
-                                            <label for="username-label">Email</label>
-                                            <input id="username-label" type="text" name="username" class="form-control"
+                                            <input id="email-label" type="text" name="username" class="form-control"
                                                    placeholder="" autocomplete="off">
                                         </div>
                                         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
@@ -159,8 +146,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                            style="color:red;"><?php echo $username_err; ?></p>
                                         <p class="help-block text-center"
                                            style="color:red;"><?php echo $password_err; ?></p>
-                                        <p class="help-block text-center"
-                                           style="color:red;"><?php echo $email_err; ?></p>
                                         <h6 class="text-center">Geen admin? <a href="https://hetplatenhuis.nl">Terug
                                                 naar de site</a>
                                     </form>
