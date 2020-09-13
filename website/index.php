@@ -214,12 +214,12 @@
 <footer>
     <div class="container text-center">
         <p>Copyright © <a href="mailto:info@hetplatenhuis.nl">HetPlatenHuis</a> || 2020</p>
+        <small>Door gebruik te maken van onze website ga je akkoord met onze <a href="#contact">gebruiksvoorwaarden</a> en
+            <a href="#contact">privacy</a>.</small><br>
         <small>Favicon gemaakt door <a href="https://www.flaticon.com/authors/iconixar" title="iconixar"
                                        target="_blank">iconixar</a> van <a href="https://www.flaticon.com/"
                                                                            title="Flaticon" target="_blank">
-                www.flaticon.com</a></small>
-        <small> || Foto's van <a href="https://unsplash.com/images/stock/non-copyrighted" target="_blank">UnSplash</a>
-            (no copyright)</small><br>
+                www.flaticon.com</a></small><br>
         <small><a href="admin/index.php">Naar de admin pagina</a></small>
     </div>
 </footer>

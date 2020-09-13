@@ -44,12 +44,16 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
                                 class="fas fa-user"></i><span>Profielen</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
+                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
                                 class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
                                                                                    href="songofday.php"><i
                                 class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
                                                                                                 href="logout.php"><i
                                 class="far fa-user-circle"></i><span>Logout</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
+                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -72,7 +76,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
+                                    <a class="dropdown-item" role="presentation" href="own-profile.php"><i
                                                 class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
                                     <a
                                             class="dropdown-item" role="presentation" href="update-maker.php"><i

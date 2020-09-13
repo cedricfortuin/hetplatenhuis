@@ -5,11 +5,11 @@
  * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
  */
 
-require_once "../config.php";
+include "../config.php";
 
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = $firstname = $lastname = $email = "";
-$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $email = "";
+$username = $password = $confirm_password = $firstname = $lastname = $email = $user_role ="";
+$username_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $email_err = $user_role_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -39,12 +39,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $username = trim($_POST["username"]);
                 }
             } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Something went wrong. Please try again later. " . mysqli_error($link);
             }
 
             // Close statement
             mysqli_stmt_close($stmt);
         }
+    }
+
+    // Validate username
+    if(empty(trim($_POST['username']))) {
+        $username_err = "Please enter a username";
+    } else {
+        $username = trim($_POST["username"]);
     }
 
     // Validate firstname
@@ -56,9 +63,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Validate lastname
     if(empty(trim($_POST['lastname']))) {
-        $lastname_err = "Please fill in a last name";
+        $lastname_err = "Please enter a last name";
     } else {
         $lastname = trim($_POST['lastname']);
+    }
+
+    // Validate firstname
+    if(empty(trim($_POST['email']))) {
+        $email_err = "Please enter a email";
+    } else {
+        $email = trim($_POST["email"]);
+    }
+
+    if(empty(trim($_POST['user_role']))) {
+        $user_role_err = "Please enter a user role";
+    } else {
+        $user_role = trim($_POST["user_role"]);
     }
 
     // Validate password
@@ -81,19 +101,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check input errors before inserting in database
-    if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($firstname_err) && empty($lastname_err)) {
+    if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($firstname_err) && empty($lastname_err) && empty($email_err) && empty($user_role_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (USERNAME, USER_PASSWORD, USER_FIRSTNAME, USER_LASTNAME) VALUES (?, ?, ? , ?)";
+        $sql = "INSERT INTO users (USERNAME, USER_PASSWORD, USER_ROLE, USER_FIRSTNAME, USER_LASTNAME, USER_EMAIL) VALUES (?, ?, ?, ?, ?, ?)";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $param_firstname, $param_lastname);
+            mysqli_stmt_bind_param($stmt, "ssisss", $param_username, $param_password, $param_user_role, $param_firstname, $param_lastname, $param_email);
 
             // Set parameters
             $param_username = $username;
             $param_firstname = $firstname;
             $param_lastname = $lastname;
+            $param_email = $email;
+            $param_user_role = $user_role;
             $param_password = password_hash($password, PASSWORD_BCRYPT); // Creates a password hash
 
             // Attempt to execute the prepared statement
@@ -101,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Redirect to login page
                 header("location: toegevoegd.php");
             } else {
-                echo "Something went wrong. Please try again later.";
+                echo "Something went wrong. Please try again later. " . mysqli_error($link);
             }
 
             // Close statement

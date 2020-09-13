@@ -6,51 +6,74 @@
  */
 
 session_start();
+include '../config.php';
+$new_sql = mysqli_query($link,  "SELECT * FROM users WHERE USER_ID ='". $_SESSION['id'] ."'");
+$username = mysqli_fetch_array($new_sql);
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
-} ?>
+}
 
 
-<!DOCTYPE html>
-<html lang="nl">
+$mysqli = $link;
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>NUMMER V/D DAG - <?php echo $_SESSION['username'] ?></title>
-    <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css">
-    <script>
-        function startTime() {
-            let today = new Date();
-            let h = today.getHours();
-            let m = today.getMinutes();
-            let s = today.getSeconds();
-            let d = today.getDate();
-            let mo = (today.getMonth() + 1);
-            let y = today.getFullYear();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('time-home').innerHTML =
-                d + "/" + mo + "/" + y + " - " + h + ":" + m + ":" + s;
-            let t = setTimeout(startTime, 500);
-        }
+// Get the total number of records from our table "students".
+$total_pages = $mysqli->query('SELECT * FROM songofday')->num_rows;
 
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i
+// Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+
+// Number of results to show on each page.
+$num_results_on_page = 4;
+
+if ($stmt = $mysqli->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT ?,?')) {
+    // Calculate the page to get the results we need from our table.
+    $calc_page = ($page - 1) * $num_results_on_page;
+    $stmt->bind_param('ii', $calc_page, $num_results_on_page);
+    $stmt->execute();
+    // Get the results...
+    $result = $stmt->get_result();?>
+
+
+    <!DOCTYPE html>
+    <html lang="nl">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>NUMMER V/D DAG - <?php echo $username['USER_FIRSTNAME'] ?></title>
+        <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
+        <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+        <link rel="stylesheet" href="./assets/fonts/fontawesome-all.min.css">
+        <script>
+            function startTime() {
+                let today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+                let d = today.getDate();
+                let mo = (today.getMonth() + 1);
+                let y = today.getFullYear();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('time-home').innerHTML =
+                    d + "/" + mo + "/" + y + " - " + h + ":" + m + ":" + s;
+                let t = setTimeout(startTime, 500);
             }
-            ;
-            return i;
-        }
-    </script>
-</head>
+
+            function checkTime(i) {
+                if (i < 10) {
+                    i = "0" + i
+                }
+                ;
+                return i;
+            }
+        </script>
+    </head>
 
 <body id="page-top" onload="startTime()">
 <div id="wrapper">
@@ -66,14 +89,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link " href="huidige-profielen.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
                                 class="fas fa-user"></i><span>Profielen</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
+                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
                                 class="far fa-edit"></i><span>Updates</span></a><a class="nav-link active"
                                                                                    href="songofday.php"><i
                                 class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
                                                                                                 href="logout.php"><i
                                 class="far fa-user-circle"></i><span>Logout</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
+                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -81,137 +108,150 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </nav>
     <div class="d-flex flex-column" id="content-wrapper">
-        <div id="content">
-            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                <div class="container-fluid">
-                    <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i
-                                class="fas fa-bars"></i></button>
-                    <ul class="nav navbar-nav flex-nowrap ml-auto">
-                        <div class="d-none d-sm-block topbar-divider"></div>
-                        <li class="nav-item dropdown no-arrow" role="presentation">
-                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                                                       data-toggle="dropdown" aria-expanded="false"
-                                                                       href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
-                                                id="time-home"></p></span></a>
-                                <div
-                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
-                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
-                                    <a
-                                            class="dropdown-item" role="presentation" href="update-maker.php"><i
-                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" role="presentation" href="logout.php"><i
-                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container-fluid">
-                <section class="content-section" style="color: black;">
-                    <div class="container">
-                        <div class="col-md-12 mx-auto">
-                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                <h3 class="text-dark mb-0">Nummer van de dag</h3>
-                            </div>
-                            <div>
-                                <p>Voeg hier een nieuw nummer van de dag toe</p>
-                            </div>
-                            <div class="form">
-                                <form action="inject-songofday.php" method="post">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputName">Naam</label>
-                                            <input type="text" class="form-control" name="song" id="inputName"
-                                                   autocomplete="off">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputArtist">Band of Artiest</label>
-                                            <input type="text" class="form-control" name="band"
-                                                   id="inputArtist" autocomplete="on">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="inputCompany">Reden van upload</label>
-                                            <textarea type="text" class="form-control" name="reason"
-                                                      id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="inputEmail">Spotify Link voor het voorbeeld</label>
-                                            <textarea style="resize: none;" type="text" class="form-control"
-                                                      name="spotify"
-                                                      placeholder="Spotify > rechtermuisknop op nummer > delen > Embed-code kopiëren > hierin plaatsen"
-                                                      id="inputEmail"
-                                                      autocomplete="off"></textarea>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Updaten</button>
-                                    <br>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-12"><br>
-                            <?php
-                            include_once('../config.php');
-                            $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY SONG_ID DESC")
-                            ?>
-                            <p>Het laatste nummer van de dag</p>
-                            <table class="table" style="color:black;">
-                                <tr>
-                                    <th scope="col">Naam</th>
-                                    <th scope="col">Band of Artiest</th>
-                                    <th scope="col">Upload datum</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                                <?php
-                                $i = 0;
-                                while ($row = mysqli_fetch_array($result)) {
-                                ?>
-                                <tbody style="color: black;">
-                                <tr>
-                                    <td><?php echo $row["SONG_NAME"]; ?></td>
-                                    <td><?php echo $row["SONG_ARTIST"]; ?></td>
-                                    <td><?php echo $row["UPLOAD_DATE"]; ?></td>
-                                    <td><p>Bewerken</p></td>
-                                    <td><a style="color: darkgreen;"
-                                           href="delete-song.php?SONG_ID=<?php echo $row["SONG_ID"]?>">Verwijderen</a>
-                                    </td>
-                                </tr>
-                                <?php
-                                $i++;
-                                }
-                                ?>
-                                </tbody>
-                            </table>
+    <div id="content">
+    <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+        <div class="container-fluid">
+            <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i
+                        class="fas fa-bars"></i></button>
+            <ul class="nav navbar-nav flex-nowrap ml-auto">
+                <div class="d-none d-sm-block topbar-divider"></div>
+                <li class="nav-item dropdown no-arrow" role="presentation">
+                    <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                                               data-toggle="dropdown" aria-expanded="false"
+                                                               href="#"><span
+                                    class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?><p
+                                        id="time-home"></p></span></a>
+                        <div
+                                class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                            <a class="dropdown-item" role="presentation" href="own-profile.php"><i
+                                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
+                            <a
+                                    class="dropdown-item" role="presentation" href="update-maker.php"><i
+                                        class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" role="presentation" href="logout.php"><i
+                                        class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                         </div>
                     </div>
-                    <section class="content-section">
-
-                        <div class="container">
-                            <div class="row">
-
-                            </div>
-                        </div>
-                    </section>
-                </section>
-            </div>
+                </li>
+            </ul>
         </div>
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
+    </nav>
+    <div class="container-fluid">
+        <section class="content-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table" style="color: black;">
+                            <tr>
+                                <th>Nummer</th>
+                                <th>Band/artiest</th>
+                                <th>Upload datum</th>
+                                <th></th>
+                            </tr>
+                            <?php while ($row = $result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?php echo $row['SONG_NAME']; ?></td>
+                                    <td><?php echo $row['SONG_ARTIST']; ?></td>
+                                    <td><?php echo $row['UPLOAD_DATE']; ?></td>
+                                    <td><a
+                                                href="delete-song.php?SONG_ID=<?php echo $row["SONG_ID"] ?>">Verwijderen</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mx-auto">
+                        <style>
+                            .harry {
+                                margin-left: 5px;
+                                margin-right: 5px;
+                            }
+                        </style>
+                        <?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
+                            <ul class="pagination list-group list-group-horizontal text-center">
+                                <?php if ($page > 1): ?>
+                                    <li class="prev"><a class="btn btn-outline-primary harry"
+                                                        href="songofday.php?page=<?php echo $page - 1 ?>">Vorige</a>
+                                    </li>
+                                <?php endif; ?>
+                                <?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
+                                    <li class="next">
+                                        <a class="btn btn-outline-primary harry"
+                                           href="songofday.php?page=<?php echo $page + 1 ?>">Volgende</a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form col-4">
+                        <form class="form mx-auto" method="post">
+                            <div class="form-row col-12">
+                            </div>
+                            <div class="form-row col-12 text-center">
+                                <div class="form-group">
+                                    <p for="count">Aantal items per tab: <?php echo $num_results_on_page?> items</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
-    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-<script src="./assets/js/jquery.min.js"></script>
-<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="./assets/js/theme.js"></script>
-</body>
+        </section>
+        <hr>
+        <section class="content-section" style="color: black;">
+            <div class="container">
+                <div class="col-md-12 mx-auto">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Nummer van de dag</h3>
+                    </div>
+                    <div>
+                        <p>Voeg hier een nieuw nummer van de dag toe</p>
+                    </div>
+                    <div class="form">
+                        <form action="inject-songofday.php" method="post">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Naam</label>
+                                    <input type="text" class="form-control" name="song" id="inputName"
+                                           autocomplete="off">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputArtist">Band of Artiest</label>
+                                    <input type="text" class="form-control" name="band"
+                                           id="inputArtist" autocomplete="on">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="inputCompany">Reden van upload</label>
+                                    <textarea type="text" class="form-control" name="reason"
+                                              id="inputCompany" autocomplete="off"
+                                              style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputEmail">Spotify Link voor het voorbeeld</label>
+                                    <textarea style="resize: none;" type="text" class="form-control"
+                                              name="spotify"
+                                              placeholder="Spotify > rechtermuisknop op nummer > delen > Embed-code kopiëren > hierin plaatsen"
+                                              id="inputEmail"
+                                              autocomplete="off"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary">Updaten</button>
+                            <br><br>
+                            <hr>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-</html>
+        </section>
+    </div>
+    <?php
+    $stmt->close();
+}
+
+include './_layouts/_layout-footer.php' ?>

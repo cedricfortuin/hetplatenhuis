@@ -60,19 +60,21 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
-                            class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
-                            class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
+                                class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
-                            class="fas fa-user"></i><span>Profielen</span></a></li>
+                                class="fas fa-user"></i><span>Profielen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="newsletter-users.php"><i
-                            class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
+                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
-                            class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
-                                                                               href="songofday.php"><i
-                            class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
-                                                                                            href="logout.php"><i
-                            class="far fa-user-circle"></i><span>Logout</span></a></li>
+                                class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
+                                                                                   href="songofday.php"><i
+                                class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
+                                                                                                href="logout.php"><i
+                                class="far fa-user-circle"></i><span>Logout</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
+                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -111,11 +113,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                             id="time-home"></p></span></a>
                                 <div
                                     class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
-                                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profielen</a>
+                                    <a class="dropdown-item" role="presentation" href="own-profile.php"><i
+                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
+                                    <a
+                                            class="dropdown-item" role="presentation" href="update-maker.php"><i
+                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" role="presentation" href="logout.php"><i
-                                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -152,7 +157,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                     <td><?php echo $row["USER_EMAIL"]; ?></td>
                                     <td><?php echo $row["USER_NAME"]; ?></td>
                                     <td><?php echo $row["USER_ADDED"]; ?></td>
-                                    <td><a style="color: darkgreen;"
+                                    <td><a
                                            href="delete-admin.php?USER_EMAIL=<?php echo $row["USER_EMAIL"]; ?>">Verwijderen</a>
                                     </td>
                                 </tr>
@@ -207,7 +212,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                       id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Versturen</button>
+                                    <button type="submit" class="btn btn-outline-primary">Versturen</button>
                                     <br>
                                 </form>
                             </div>

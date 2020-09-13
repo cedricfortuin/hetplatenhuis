@@ -67,12 +67,16 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
                                 class="fas fa-user"></i><span>Profielen</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
+                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="update-maker.php"><i
                                 class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
                                                                                    href="songofday.php"><i
                                 class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
                                                                                                 href="logout.php"><i
                                 class="far fa-user-circle"></i><span>Logout</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
+                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -111,8 +115,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
-                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profielen</a>
+                                    <a class="dropdown-item" role="presentation" href="own-profile.php"><i
+                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
+                                    <a
+                                            class="dropdown-item" role="presentation" href="update-maker.php"><i
+                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" role="presentation" href="logout.php"><i
                                                 class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
@@ -148,11 +155,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="inputEmail">Tekst om weer te geven</label>
-                                        <textarea style="resize: none;height: 250px;" type="text" class="form-control" name="text"
+                                        <textarea style="resize: none;height: 200px;" type="text" class="form-control" name="text"
                                                   id="inputEmail" autocomplete="off"></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Uploaden</button>
+                                <button type="submit" class="btn btn-outline-primary">Uploaden</button>
                                 <br>
                             </form>
                         </div>
@@ -171,9 +178,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <table class="table" style="color:black;">
                                 <tr>
                                     <th scope="col">Titel</th>
-                                    <th scope="col">Auteur</th>
-                                    <th scope="col">Datum</th>
                                     <th scope="col">Tekst</th>
+                                    <th scope="col">Datum</th>
+                                    <th scope="col">Auteur</th>
+                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                                 <?php
@@ -186,8 +194,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                     <td><?php echo $row["POST_AUTHOR"]; ?></td>
                                     <td><?php echo $row["UPLOAD_DATE"]; ?></td>
                                     <td><?php echo $row["POST_TEXT"]; ?></td>
-                                    <td><a style="color: darkgreen;"
-                                           href="delete-posts.php?POST_TITLE=<?php echo $row["POST_TITLE"]; ?>">Verwijderen</a>
+                                    <td><a
+                                                href="edit-posts.php?POST_ID=<?php echo $row["POST_ID"]; ?>">Bewerken</a>
+                                    </td>
+                                    <td><a
+                                           href="delete-posts.php?POST_ID=<?php echo $row["POST_ID"]; ?>">Verwijderen</a>
                                     </td>
                                 </tr>
                                 <?php

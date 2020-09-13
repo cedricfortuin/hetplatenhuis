@@ -8,25 +8,23 @@
                         </div>
                     </div>
                     <section class="content-section">
+                        <?php
+                        include_once '../config.php';
+                        $result = mysqli_query($link,"SELECT * FROM users WHERE USER_ID='" . $_SESSION['id'] . "'");
+                        $row= mysqli_fetch_array($result);
 
+                        ?>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 mx-auto">
                                     <div class="login-form">
                                         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                            <h3 class="text-dark mb-0">Gebruiker aanpassen</h3>
+                                            <h3 class="text-dark mb-0">Je profiel aanpassen</h3>
                                         </div>
                                         <div>
-                                            <p><?php echo 'Je staat op het punt om <i>' . $_GET['USER_FIRSTNAME'] . '</i> aan te passen. Dit heeft effect in de database!'?></p>
+                                            <p><?php echo 'Hoi ' . $row['USER_FIRSTNAME'] . ', je kunt hier je profiel aanpassen'?></p>
                                         </div>
-                                        <form action="edit-profiles-handler.php" method="post">
-                                            <?php
-                                            include_once '../config.php';
-                                            $result = mysqli_query($link,"SELECT * FROM users WHERE USER_FIRSTNAME='" . $_GET['USER_FIRSTNAME'] . "'");
-                                            $row= mysqli_fetch_array($result);
-
-                                            $_SESSION['user-edit'] = $_GET['USER_FIRSTNAME'];
-                                            ?>
+                                        <form action="edit-own-profile.php" method="post">
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="firstname">Voornaam</label>
@@ -38,22 +36,20 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-md-8">
+                                                <div class="form-group col-md-6">
                                                     <label for="username">Gebruikersnaam</label>
                                                     <input id="username" type="text" name="username-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USERNAME']; ?>" required>
                                                 </div>
-                                                <div class="form-group col-md-4">
-                                                    <label for="username">Gebruikersrol</label>
-                                                    <input id="username" type="number" name="userrole-edit" min="1" max="2" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_ROLE']; ?>" required>
+                                                <div class="form-group col-md-6">
+                                                    <label for="email">Email</label>
+                                                    <input id="email" type="text" name="email-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_EMAIL']; ?>" required>
                                                 </div>
                                             </div>
+                                            <hr>
                                             <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input id="email" type="text" name="email-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_EMAIL']; ?>" required>
+                                                <input type="submit" class="btn btn-outline-primary" value="Je profiel bewerken">
                                             </div>
-                                            <div class="form-group">
-                                                <input type="submit" class="btn btn-primary" value="<?php echo $_GET['USER_FIRSTNAME'] . ' bewerken'?>">
-                                            </div>
+                                            <p><i>Helaas kun je niet je eigen wachtwoord aanpassen</i></p>
                                         </form>
                                     </div>
                                 </div>

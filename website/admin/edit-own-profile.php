@@ -1,9 +1,8 @@
-<?php include '_layouts/_layout-header.php'?>
+<?php include '_layouts/_layout-header.php'
+?>
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <?php
-                    /* Attempt MySQL server connection. Assuming you are running MySQL
-                    server with default setting (user 'root' with no password) */
                     include_once '../config.php';
 
                     // Check connection
@@ -12,14 +11,15 @@
                     }
 
                     // Escape user inputs for security
-                    $title = mysqli_real_escape_string($link, $_REQUEST['title']);
-                    $author = mysqli_real_escape_string($link, $_REQUEST['text']);
-                    $text = mysqli_real_escape_string($link, $_REQUEST['author']);
+                    $first_name = mysqli_real_escape_string($link, $_REQUEST['firstname-edit']);
+                    $last_name = mysqli_real_escape_string($link, $_REQUEST['lastname-edit']);
+                    $username = mysqli_real_escape_string($link, $_REQUEST['username-edit']);
+                    $email = mysqli_real_escape_string($link, $_REQUEST['email-edit']);
 
                     // Attempt insert query execution
-                    $sql = "INSERT INTO posts (POST_TITLE, POST_AUTHOR, POST_TEXT) VALUES ('$title', '$author', '$text')";
+                    $sql = "UPDATE users SET USERNAME =  '".$username."' , USER_FIRSTNAME = '".$first_name."', USER_LASTNAME = '".$last_name."', USER_EMAIL = '".$email."'  WHERE USER_ID = '". $_SESSION['id'] ."'";
                     if (mysqli_query($link, $sql)) {
-                        echo "<div class='col-md-10 mx-auto alert alert-success text-center'>De update is succesvol toegevoegd. Ga terug.</div>";
+                        echo "<div class='col-md-10 mx-auto alert alert-success text-center'>Je account is succesvol gewijzigd!</div>";
                     } else {
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                     }

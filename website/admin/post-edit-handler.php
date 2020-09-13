@@ -20,7 +20,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>ADDED - <?php echo $_SESSION['username'] ?></title>
+    <title>EDITED - <?php echo $_SESSION['username'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -63,21 +63,21 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <hr class="sidebar-divider my-0">
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
-                                class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                            class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="toevoegen.php"><i
-                                class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
+                            class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
-                                class="fas fa-user"></i><span>Profielen</span></a></li>
+                            class="fas fa-user"></i><span>Profielen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
-                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
+                            class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
-                                class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
-                                                                                   href="songofday.php"><i
-                                class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
-                                                                                                href="logout.php"><i
-                                class="far fa-user-circle"></i><span>Logout</span></a></li>
+                            class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
+                                                                               href="songofday.php"><i
+                            class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
+                                                                                            href="logout.php"><i
+                            class="far fa-user-circle"></i><span>Logout</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
-                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
+                            class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -89,25 +89,25 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid">
                     <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i
-                                class="fas fa-bars"></i></button>
+                            class="fas fa-bars"></i></button>
                     <ul class="nav navbar-nav flex-nowrap ml-auto">
                         <div class="d-none d-sm-block topbar-divider"></div>
                         <li class="nav-item dropdown no-arrow" role="presentation">
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
-                                                id="time-home"></p></span></a>
+                                        class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
+                                            id="time-home"></p></span></a>
                                 <div
-                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                                    class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                                     <a class="dropdown-item" role="presentation" href="own-profile.php"><i
-                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
+                                            class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
                                     <a
-                                            class="dropdown-item" role="presentation" href="update-maker.php"><i
-                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
+                                        class="dropdown-item" role="presentation" href="update-maker.php"><i
+                                            class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" role="presentation" href="logout.php"><i
-                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -117,8 +117,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <?php
-                    /* Attempt MySQL server connection. Assuming you are running MySQL
-                    server with default setting (user 'root' with no password) */
                     include_once '../config.php';
 
                     // Check connection
@@ -127,15 +125,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     }
 
                     // Escape user inputs for security
-                    $first_name = mysqli_real_escape_string($link, $_REQUEST['song']);
-                    $last_name = mysqli_real_escape_string($link, $_REQUEST['band']);
-                    $spotify_link = mysqli_real_escape_string($link, $_REQUEST['spotify']);
-                    $song_reason = mysqli_real_escape_string($link, $_REQUEST['reason']);
+                    $title = mysqli_real_escape_string($link, $_REQUEST['title-edit']);
+                    $author = mysqli_real_escape_string($link, $_REQUEST['text-edit']);
+                    $text = mysqli_real_escape_string($link, $_REQUEST['author-edit']);
 
                     // Attempt insert query execution
-                    $sql = "INSERT INTO songofday (SONG_NAME, SONG_ARTIST, SPOTIFY_LINK, SONG_REASON) VALUES ('$first_name', '$last_name', '$spotify_link', '$song_reason')";
+                    $sql = "UPDATE posts SET POST_TITLE =  '".$title."' , POST_AUTHOR = '".$author."', POST_TEXT = '".$text."'  WHERE POST_TITLE = '". $_SESSION['post-edit'] ."'";
                     if (mysqli_query($link, $sql)) {
-                        echo "<div class='col-md-10 mx-auto alert alert-success text-center'>Het nummer is succesvol toegevoegd. Ga terug.</div>";
+                        echo "<div class='col-md-10 mx-auto alert alert-success text-center'>De post is succesvol gewijzigd!</div>";
                     } else {
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                     }
