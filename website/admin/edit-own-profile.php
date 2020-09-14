@@ -3,7 +3,6 @@
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <?php
-                    include_once '../config.php';
 
                     // Check connection
                     if ($link === false) {

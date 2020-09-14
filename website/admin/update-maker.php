@@ -11,7 +11,11 @@ session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
-} ?>
+}
+include '../config.php';
+$new_sql = mysqli_query($link, "SELECT * FROM users WHERE USER_ID ='" . $_SESSION['id'] . "'");
+$username = mysqli_fetch_array($new_sql);
+?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -19,7 +23,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>UPDATES - <?php echo $_SESSION['username'] ?></title>
+    <title>UPDATES - <?php echo $username['USER_FIRSTNAME'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -111,7 +115,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
+                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?><p
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
@@ -169,7 +173,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <br><br>
             <section class="content-section">
                 <?php
-                include_once '../config.php';
                 $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC")
                 ?>
                 <div class="container">
@@ -212,16 +215,4 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </div>
             </section>
         </div>
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
-            </div>
-        </footer>
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="./assets/js/theme.js"></script>
-</body>
-
-</html>
+<?php include '_layouts/_layout-footer.php'?>

@@ -21,7 +21,6 @@
                                         </div>
                                         <form action="edit-profiles-handler.php" method="post">
                                             <?php
-                                            include_once '../config.php';
                                             $result = mysqli_query($link,"SELECT * FROM users WHERE USER_FIRSTNAME='" . $_GET['USER_FIRSTNAME'] . "'");
                                             $row= mysqli_fetch_array($result);
 

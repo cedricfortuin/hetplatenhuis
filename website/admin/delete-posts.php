@@ -6,7 +6,6 @@
                             <div class="col-md-12 text-center">
                                 <section class="content-section" style="color: black;">
                                     <?php
-                                    include_once '../config.php';
                                     $sql = "DELETE FROM posts WHERE POST_ID='" . $_GET["POST_ID"] . "'";
 
                                     if (mysqli_query($link, $sql)) {

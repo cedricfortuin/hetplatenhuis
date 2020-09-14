@@ -9,7 +9,6 @@
                     </div>
                     <section class="content-section">
                         <?php
-                        include_once '../config.php';
                         $result = mysqli_query($link,"SELECT * FROM users WHERE USER_ID='" . $_SESSION['id'] . "'");
                         $row= mysqli_fetch_array($result);
 

@@ -2,9 +2,6 @@
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <?php
-                    /* Attempt MySQL server connection. Assuming you are running MySQL
-                    server with default setting (user 'root' with no password) */
-                    include_once '../config.php';
 
                     // Check connection
                     if ($link === false) {
@@ -30,8 +27,4 @@
                 </section>
             </div>
         </div>
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
-            </div>
 <?php include '_layouts/_layout-footer.php'?>

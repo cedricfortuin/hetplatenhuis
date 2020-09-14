@@ -1,4 +1,4 @@
-<?php include '_layouts/_layout-header.php'?>
+<?php include '_layouts/_layout-header.php' ?>
     <div class="container-fluid">
         <section class="content-section" style="color: black;">
             <div class="container">
@@ -16,31 +16,34 @@
                                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
                                     <h3 class="text-dark mb-0">Post aanpassen</h3>
                                 </div>
-                                <div>
-                                    <p><?php echo 'Je staat op het punt om <i>' . $_GET['POST_ID'] . '</i> aan te passen. Dit heeft effect in de database!'?></p>
-                                </div>
                                 <form action="post-edit-handler.php" method="post">
                                     <?php
-                                    include_once '../config.php';
-                                    $result = mysqli_query($link,"SELECT * FROM posts WHERE POST_ID='" . $_GET['POST_ID'] . "'");
-                                    $row= mysqli_fetch_array($result);
+                                    $result = mysqli_query($link, "SELECT * FROM posts WHERE POST_ID='" . $_GET['POST_ID'] . "'");
+                                    $row = mysqli_fetch_array($result);
 
                                     $_SESSION['post-edit'] = $_GET['POST_ID'];
                                     ?>
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="firstname">Titel</label>
-                                            <input id="firstname" type="text" name="title-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['POST_TITLE']; ?>" required>
+                                            <input id="firstname" type="text" name="title-edit" autocomplete="off"
+                                                   class="form-control"
+                                                   placeholder="Huidig: <?php echo $row['POST_TITLE']; ?>" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="lastname">Auteur</label>
-                                            <input id="lastname" type="text" name="author-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['POST_TEXT']; ?>" required>
+                                            <input id="lastname" type="text" name="author-edit" autocomplete="off"
+                                                   class="form-control"
+                                                   placeholder="Huidig: <?php echo $row['POST_TEXT']; ?>" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-8">
                                             <label for="username">Text</label>
-                                            <textarea id="username" style="height: auto;" type="text" name="text-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['POST_AUTHOR']; ?>" required></textarea>
+                                            <textarea id="username" style="height: auto;" type="text" name="text-edit"
+                                                      autocomplete="off" class="form-control"
+                                                      placeholder="Huidig: <?php echo $row['POST_AUTHOR']; ?>"
+                                                      required></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -55,4 +58,4 @@
         </section>
     </div>
     </div>
-<?php include '_layouts/_layout-footer.php'?>
+<?php include '_layouts/_layout-footer.php' ?>

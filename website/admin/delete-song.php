@@ -5,7 +5,6 @@ include './_layouts/_layout-header.php';?>
                     <div class="container">
                         <div class="col-md-12 mx-auto">
                            <?php
-                                include_once '../config.php';
                                 $sql = "DELETE FROM songofday WHERE SONG_ID='" . $_GET["SONG_ID"] . "'";
 
                                 if (mysqli_query($link, $sql)) {
