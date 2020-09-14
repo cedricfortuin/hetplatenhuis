@@ -6,12 +6,22 @@
  */
 
 session_start();
+include '../config.php';
+$new_sql = mysqli_query($link,  "SELECT * FROM users WHERE USER_ID ='". $_SESSION['id'] ."'");
+$username = mysqli_fetch_array($new_sql);
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
-} ?>
+}
+
+if($username['USER_ROLE'] != 1)
+{
+    header("location:no-permission.php");
+    die();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -19,7 +29,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>TOEVOEGEN - <?php echo $_SESSION['username'] ?></title>
+    <title>TOEVOEGEN - <?php echo $username['USER_FIRSTNAME'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -45,7 +55,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             if (i < 10) {
                 i = "0" + i
             }
-            ;
             return i;
         }
     </script>
@@ -63,16 +72,20 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <ul class="nav navbar-nav text-light" id="accordionSidebar">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="huidige-profielen.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="toevoegen.php"><i
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
                                 class="fas fa-user"></i><span>Profielen</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
+                                class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
                                 class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
                                                                                    href="songofday.php"><i
                                 class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
                                                                                                 href="logout.php"><i
                                 class="far fa-user-circle"></i><span>Logout</span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="https://hetplatenhuis.nl/"><i
+                                class="fas fa-bars"></i><span>Naar de site</span></a></li>
             </ul>
             <div class="text-center d-none d-md-inline">
                 <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
@@ -107,12 +120,15 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $_SESSION['username']; ?><p
+                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?><p
                                                 id="time-home"></p></span></a>
                                 <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="toevoegen.php"><i
-                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profielen</a>
+                                    <a class="dropdown-item" role="presentation" href="own-profile.php"><i
+                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
+                                    <a
+                                            class="dropdown-item" role="presentation" href="update-maker.php"><i
+                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Updates</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" role="presentation" href="logout.php"><i
                                                 class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
@@ -130,34 +146,44 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <h3 class="text-dark mb-0">Gebruiker aanmaken</h3>
                             </div>
                             <div>
-                                <p>Maak hier een nieuwe gebruiker aan <br><small>Eerst overleggen</small></p>
+                                <p>Maak hier een nieuwe gebruiker aan</p>
                             </div>
                             <form action="register-handler.php" method="post">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label>Voornaam</label>
-                                        <input type="text" name="firstname" autocomplete="off" class="form-control">
+                                        <label for="firstname">Voornaam</label>
+                                        <input id="firstname" type="text" name="firstname" autocomplete="off" class="form-control" >
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Achternaam</label>
-                                        <input type="text" name="lastname" autocomplete="off" class="form-control">
+                                        <label for="lastname">Achternaam</label>
+                                        <input id="lastname" type="text" name="lastname" autocomplete="off" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-5">
+                                        <label for="username">Gebruikersnaam</label>
+                                        <input id="username" type="text" name="username" autocomplete="off" class="form-control" >
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="email">Email</label>
+                                        <input id="email" type="text" name="email" autocomplete="off" class="form-control" >
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="rol">Rol</label>
+                                        <input id="rol" type="int" name="user_role" min="1" minlength="1" max="2" maxlength="2" autocomplete="off" class="form-control" >
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Gebruikersnaam</label>
-                                    <input type="text" name="username" autocomplete="off" class="form-control">
+                                    <label for="password">Wachtwoord</label>
+                                    <input id="password" type="password" name="password" autocomplete="off" class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label>Wachtwoord</label>
-                                    <input type="password" name="password" autocomplete="off" class="form-control">
+                                    <label for="password-confirm">Bevestig wachtwoord</label>
+                                    <input id="password-confirm" type="password" name="confirm_password" autocomplete="off"
+                                           class="form-control" >
                                 </div>
                                 <div class="form-group">
-                                    <label>Bevestig wachtwoord</label>
-                                    <input type="password" name="confirm_password" autocomplete="off"
-                                           class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Toevoegen">
+                                    <input type="submit" class="btn btn-outline-primary" value="Toevoegen">
                                 </div>
                             </form>
                         </div>
@@ -165,16 +191,4 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </div>
             </div>
         </div>
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Het Platenhuis 2020</span></div>
-            </div>
-        </footer>
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="./assets/js/jquery.min.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="./assets/js/theme.js"></script>
-</body>
-
-</html>
+<?php include '_layouts/_layout-footer.php'?>

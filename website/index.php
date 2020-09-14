@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html lang="nl">
-
-
-<!--TODO
-        - Eline https://w3schools.com/ sturen
-        - pushen
--->
-
 <head>
     <!--    ©Cedric Fortuin || 2020-->
     <!--    Meta tags-->
@@ -26,6 +19,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<!--    Google ads-->
+    <script data-ad-client="ca-pub-5206885279475064" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!--    Functional tags-->
     <title>Het PlatenHuis</title>
@@ -55,6 +50,14 @@
             background-color: rgba(88, 88, 88, 0.3);
         }
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F63N0SR2NN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-F63N0SR2NN');
+    </script>
 </head>
 
 <body id="page-top">
@@ -129,8 +132,8 @@
                             <?php echo $row["SPOTIFY_LINK"]; ?>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
+                    <tr class="row">
+                        <td class="col-md-6 mx-auto">
                             <?php echo $row["SONG_REASON"]; ?>
                         </td>
                     </tr>
@@ -211,12 +214,12 @@
 <footer>
     <div class="container text-center">
         <p>Copyright © <a href="mailto:info@hetplatenhuis.nl">HetPlatenHuis</a> || 2020</p>
+        <small>Door gebruik te maken van onze website ga je akkoord met onze <a href="#contact">gebruiksvoorwaarden</a> en
+            <a href="#contact">privacy</a>.</small><br>
         <small>Favicon gemaakt door <a href="https://www.flaticon.com/authors/iconixar" title="iconixar"
                                        target="_blank">iconixar</a> van <a href="https://www.flaticon.com/"
                                                                            title="Flaticon" target="_blank">
-                www.flaticon.com</a></small>
-        <small> || Foto's van <a href="https://unsplash.com/images/stock/non-copyrighted" target="_blank">UnSplash</a>
-            (no copyright)</small><br>
+                www.flaticon.com</a></small><br>
         <small><a href="admin/index.php">Naar de admin pagina</a></small>
     </div>
 </footer>

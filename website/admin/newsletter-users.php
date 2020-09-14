@@ -1,6 +1,4 @@
 <?php
-// Initialize the session
-
 /*
  * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
  */
@@ -15,6 +13,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 include '../config.php';
 $new_sql = mysqli_query($link, "SELECT * FROM users WHERE USER_ID ='" . $_SESSION['id'] . "'");
 $username = mysqli_fetch_array($new_sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ $username = mysqli_fetch_array($new_sql);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>UPDATES - <?php echo $username['USER_FIRSTNAME'] ?></title>
+    <title>PROFIELEN - <?php echo $username['USER_FIRSTNAME'] ?></title>
     <link rel="shortcut icon" href="./assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -71,9 +70,9 @@ $username = mysqli_fetch_array($new_sql);
                                 class="fas fa-user-edit"></i><span>Toevoegen</span></a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="huidige-profielen.php"><i
                                 class="fas fa-user"></i><span>Profielen</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="newsletter-users.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="newsletter-users.php"><i
                                 class="fas fa-newspaper"></i><span>Nieuwsbrief</span></a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="update-maker.php"><i
+                <li class="nav-item" role="presentation"><a class="nav-link" href="update-maker.php"><i
                                 class="far fa-edit"></i><span>Updates</span></a><a class="nav-link"
                                                                                    href="songofday.php"><i
                                 class="fab fa-spotify"></i><span>Nummer van de Dag</span></a><a class="nav-link"
@@ -92,7 +91,7 @@ $username = mysqli_fetch_array($new_sql);
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid">
                     <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i
-                                class="fas fa-bars"></i></button>
+                            class="fas fa-bars"></i></button>
                     <ul class="nav navbar-nav flex-nowrap ml-auto">
                         <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                                                             data-toggle="dropdown" aria-expanded="false"
@@ -104,7 +103,7 @@ $username = mysqli_fetch_array($new_sql);
                                                                     type="text" placeholder="Search for ...">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary py-0" type="button"><i
-                                                        class="fas fa-search"></i></button>
+                                                    class="fas fa-search"></i></button>
                                         </div>
                                     </div>
                                 </form>
@@ -115,10 +114,10 @@ $username = mysqli_fetch_array($new_sql);
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                                                        data-toggle="dropdown" aria-expanded="false"
                                                                        href="#"><span
-                                            class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?><p
-                                                id="time-home"></p></span></a>
+                                        class="d-none d-lg-inline mr-2 text-center text-gray-600 small"><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?><p
+                                            id="time-home"></p></span></a>
                                 <div
-                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                                    class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                                     <a class="dropdown-item" role="presentation" href="own-profile.php"><i
                                                 class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profiel</a>
                                     <a
@@ -133,75 +132,37 @@ $username = mysqli_fetch_array($new_sql);
                     </ul>
                 </div>
             </nav>
-            <section class="content-section" style="color: black;">
-                <div class="container">
-                    <div class="col-md-12 mx-auto">
-                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                            <h3 class="text-dark mb-0">Updates</h3>
-                        </div>
-                        <div>
-                            <p>Zie hier de huidige updates op de site</p>
-                        </div>
-                        <div class="form">
-                            <form action="inject-blogpost.php" method="post">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputName">Titel</label>
-                                        <input type="text" class="form-control" name="title" id="inputName"
-                                               autocomplete="off">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCompany">Auteur</label>
-                                        <input type="text" class="form-control" name="author" id="inputCompany"
-                                               autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="inputEmail">Tekst om weer te geven</label>
-                                        <textarea style="resize: none;height: 200px;" type="text" class="form-control" name="text"
-                                                  id="inputEmail" autocomplete="off"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-outline-primary">Uploaden</button>
-                                <br>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <br><br>
             <section class="content-section">
                 <?php
-                $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC")
+                $result = mysqli_query($link, "SELECT * FROM newsletter ORDER BY USER_ID ASC")
                 ?>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 mx-auto">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Nieuwsbrief gebruikers</h3>
+                            </div>
+                            <div>
+                                <p>Zie hier de mensen die zijn geabonneerd op de nieuwsbrief</p>
+                            </div>
                             <table class="table" style="color:black;">
                                 <tr>
-                                    <th scope="col">Titel</th>
-                                    <th scope="col">Tekst</th>
-                                    <th scope="col">Datum</th>
-                                    <th scope="col">Auteur</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Voornaam</th>
+                                    <th scope="col">Upload datum</th>
                                     <th scope="col"></th>
                                 </tr>
                                 <?php
                                 $i = 0;
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                <tbody style="color: black">
+                                <tbody style="color: black;">
                                 <tr>
-                                    <td><?php echo $row["POST_TITLE"]; ?></td>
-                                    <td><?php echo $row["POST_AUTHOR"]; ?></td>
-                                    <td><?php echo $row["UPLOAD_DATE"]; ?></td>
-                                    <td><?php echo $row["POST_TEXT"]; ?></td>
+                                    <td><?php echo $row["USER_EMAIL"]; ?></td>
+                                    <td><?php echo $row["USER_NAME"]; ?></td>
+                                    <td><?php echo $row["USER_ADDED"]; ?></td>
                                     <td><a
-                                                href="edit-posts.php?POST_ID=<?php echo $row["POST_ID"]; ?>">Bewerken</a>
-                                    </td>
-                                    <td><a
-                                           href="delete-posts.php?POST_ID=<?php echo $row["POST_ID"]; ?>">Verwijderen</a>
+                                           href="delete-admin.php?USER_EMAIL=<?php echo $row["USER_EMAIL"]; ?>">Verwijderen</a>
                                     </td>
                                 </tr>
                                 <?php
@@ -210,6 +171,55 @@ $username = mysqli_fetch_array($new_sql);
                                 ?>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mx-auto">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Mail aanmaken</h3>
+                            </div>
+                            <div>
+                                <p>Stuur een nieuwe mail naar de mensen</p>
+                            </div>
+                            <div class="form">
+                                <form action="send-new-mail.php" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputName">Onderwerp</label>
+                                            <input type="text" class="form-control" name="mail-subject" id="inputName"
+                                                   autocomplete="off">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputArtist">Jouw naam</label>
+                                            <select class="form-control" name="admin-name"
+                                                    id="inputArtist" autocomplete="off">
+                                                <?php
+                                                include_once '../config.php';
+                                                $admin = mysqli_query($link, "SELECT FIRSTNAME FROM users ORDER BY USER_ID ASC");
+                                                $i = 0;
+                                                while ($admin_item = mysqli_fetch_array($admin)) {
+                                                ?>
+                                                <option value="<?php echo $admin_item["FIRSTNAME"]?>" name="<?php echo $admin_item["FIRSTNAME"]?>"><?php echo $admin_item["FIRSTNAME"]?></option>
+                                                    <?php
+                                                    $i++;
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="inputCompany">Bericht</label>
+                                            <textarea type="text" class="form-control" name="mail-text"
+                                                      id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-primary">Versturen</button>
+                                    <br>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
