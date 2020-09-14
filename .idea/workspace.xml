@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/website/admin/versions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/delete-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/delete-admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/delete-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/delete-posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/delete-song.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/delete-song.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/edit-own-profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/edit-own-profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/edit-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/edit-posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/edit-profiles-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/edit-profiles-handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/edit-profiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/edit-profiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/huidige-profielen.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/huidige-profielen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/inject-blogpost.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/inject-blogpost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/inject-songofday.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/inject-songofday.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/newsletter-users.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/newsletter-users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/own-profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/own-profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/post-edit-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/post-edit-handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/send-new-mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/send-new-mail.php.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/toegevoegd.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/toegevoegd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/toevoegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/toevoegen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/update-maker.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/update-maker.php" afterDir="false" />
-    </list>
+    <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
