@@ -10,7 +10,7 @@
 //$link = mysqli_connect('localhost:3306', 'ADMIN_C', 'Cedric2001', 'database_1');
 
 //This link is for the local host
-$link = mysqli_connect('localhost', 'root', 'root', 'hetplatenhuis' );
+$link = mysqli_connect('localhost', 'root', '', 'hetplatenhuis' );
 
 // Check connection
 if ($link === false) {
