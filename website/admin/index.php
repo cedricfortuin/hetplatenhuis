@@ -133,6 +133,13 @@ $version = '1.4.3';
 
                                 <?php
                             } ?>
+                            <?php
+                            if ($username['USER_ROLE'] != 1) {
+                                ?>
+                                <p class="alert alert-warning">Let op, het is mogelijk dat de pagina "Nieuwsbrief" niet goed werkt. Je kunt sowieso geen mails sturen.</p>
+
+                                <?php
+                            } ?>
 
                         </div>
                         <div class="col-md-8">
