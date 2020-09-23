@@ -199,11 +199,11 @@ $username = mysqli_fetch_array($new_sql);
                                                     id="inputArtist" autocomplete="off">
                                                 <?php
                                                 include_once '../config.php';
-                                                $admin = mysqli_query($link, "SELECT FIRSTNAME FROM users ORDER BY USER_ID ASC");
+                                                $admin = mysqli_query($link, "SELECT USER_FIRSTNAME FROM users ORDER BY USER_ID ASC");
                                                 $i = 0;
                                                 while ($admin_item = mysqli_fetch_array($admin)) {
                                                 ?>
-                                                <option value="<?php echo $admin_item["FIRSTNAME"]?>" name="<?php echo $admin_item["FIRSTNAME"]?>"><?php echo $admin_item["FIRSTNAME"]?></option>
+                                                <option value="<?php echo $admin_item["USER_FIRSTNAME"]?>" name="<?php echo $admin_item["USER_FIRSTNAME"]?>"><?php echo $admin_item["USER_FIRSTNAME"]?></option>
                                                     <?php
                                                     $i++;
                                                 }
@@ -216,7 +216,7 @@ $username = mysqli_fetch_array($new_sql);
                                                       id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-primary">Versturen</button>
+                                    <button type="button" class="btn btn-outline-primary disabled">Versturen</button>
                                     <br>
                                 </form>
                             </div>

@@ -49,6 +49,18 @@
         .buttonBands:hover {
             background-color: rgba(88, 88, 88, 0.3);
         }
+
+        #hifi-dropdown {
+            border-radius: 5px;
+            background-color: transparent;
+            backdrop-filter: opacity(40%);
+            border: none;
+        }
+
+        #hifi-dropdown a:hover {
+            background-color: transparent;
+            text-decoration: underline;
+        }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F63N0SR2NN"></script>
     <script>
@@ -61,7 +73,7 @@
 </head>
 
 <body id="page-top">
-<nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav">
+<nav class="navbar navbar-light navbar-expand-lg navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container"><a class="navbar-brand js-scroll-trigger" href="#Home">HET PLATENHUIS</a>
         <button data-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive"
                 type="button" aria-controls="navbarResponsive" aria-expanded="false"
@@ -79,6 +91,18 @@
                 </li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                             class="nav-link active js-scroll-trigger buttonBands" href="pages/blogs.php">blogs</a></li>
+                <li class="nav-item dropdown nav-link" role="presentation">
+                    <div class="nav-item dropdown no-arrow">
+                        <a class="dropdown-toggle nav-link"
+                           data-toggle="dropdown" aria-expanded="false"
+                           href="#">HiFi</a>
+                        <div class="dropdown-menu dropdown-menu-right mt-2" role="table" id="hifi-dropdown">
+                            <a class="dropdown-item text-uppercase" href="#">Audio</a>
+                            <a class="dropdown-item text-uppercase" href="#">Vinyl</a>
+                            <a class="dropdown-item text-uppercase" href="#" >Digitaal</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
