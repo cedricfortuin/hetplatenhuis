@@ -216,7 +216,7 @@ $username = mysqli_fetch_array($new_sql);
                                                       id="inputCompany" autocomplete="off" style="resize: vertical; min-height: 100px; max-height: 250px;"></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-primary">Versturen</button>
+                                    <button type="button" class="btn btn-outline-primary disabled">Versturen</button>
                                     <br>
                                 </form>
                             </div>
