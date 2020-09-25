@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free/css/brands.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free/css/regular.min.css">
+    <link rel="stylesheet" href="assets/fontawesome-free/css/solid.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <!--    Google ads-->
     <script data-ad-client="ca-pub-5206885279475064" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -87,7 +91,7 @@
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                             class="nav-link active js-scroll-trigger buttonBands" href="#contact">contact</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands" href="pages/bands.html">bands/artiesten</a>
+                            class="nav-link active js-scroll-trigger buttonBands" href="pages/bands.html">artiesten</a>
                 </li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                             class="nav-link active js-scroll-trigger buttonBands" href="pages/blogs.php">blogs</a></li>
@@ -178,20 +182,17 @@
                 <ul class="list-inline banner-social-buttons">
                     <li class="list-inline-item">&nbsp;<a href="https://www.instagram.com/hetplatenhuis/"
                                                           target="_blank">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><i
-                                        class="fa fa-instagram fa-fw"></i><span class="network-name"
-                                                                                style="font-size: 15px;">&nbsp; instagram</span>
+                            <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name"
+                                                                                style="font-size: 15px;">instagram</span>
                             </button>
                         </a></li>
                     <li class="list-inline-item">&nbsp;<a href="https://www.facebook.com/hetplatenhuis" target="_blank">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><i
-                                        class="fa fa-facebook fa-fw"></i><span class="network-name"
-                                                                               style="font-size: 15px;">&nbsp; Facebook</span>
+                            <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name"
+                                                                               style="font-size: 15px;">Facebook</span>
                             </button>
                         </a></li>
                     <li class="list-inline-item">&nbsp;<a href="mailto:info@hetplatenhuis.nl">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><i
-                                        class="fa fa-envelope-o fa-fw"></i><span class="network-name" style="font-size: 15px;">&nbsp; email</span>
+                            <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name" style="font-size: 15px;">email</span>
                             </button>
                         </a></li>
                     <br><br>
@@ -208,32 +209,32 @@
     </div>
 </section>
 <!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            xfbml: true,
-            version: 'v8.0'
-        });
-    };
-
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/nl_NL/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
+<!--<div id="fb-root"></div>-->
+<!--<script>-->
+<!--    window.fbAsyncInit = function () {-->
+<!--        FB.init({-->
+<!--            xfbml: true,-->
+<!--            version: 'v8.0'-->
+<!--        });-->
+<!--    };-->
+<!---->
+<!--    (function (d, s, id) {-->
+<!--        var js, fjs = d.getElementsByTagName(s)[0];-->
+<!--        if (d.getElementById(id)) return;-->
+<!--        js = d.createElement(s);-->
+<!--        js.id = id;-->
+<!--        js.src = 'https://connect.facebook.net/nl_NL/sdk/xfbml.customerchat.js';-->
+<!--        fjs.parentNode.insertBefore(js, fjs);-->
+<!--    }(document, 'script', 'facebook-jssdk'));</script>-->
+<!---->
 <!-- Your Chat Plugin code -->
-<div class="fb-customerchat"
-     attribution=install_email
-     page_id="101137895048555"
-     theme_color="#42dca3"
-     logged_in_greeting="Hoi, hoe kunnen we je helpen?"
-     logged_out_greeting="Hoi, hoe kunnen we je helpen?">
-</div>
+<!--<div class="fb-customerchat"-->
+<!--     attribution=install_email-->
+<!--     page_id="101137895048555"-->
+<!--     theme_color="#42dca3"-->
+<!--     logged_in_greeting="Hoi, hoe kunnen we je helpen?"-->
+<!--     logged_out_greeting="Hoi, hoe kunnen we je helpen?">-->
+<!--</div>-->
 
 <footer>
     <div class="container text-center">
