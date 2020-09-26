@@ -5,7 +5,7 @@
  * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
  */
 
-include "../config.php";
+include "config/config.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = $firstname = $lastname = $email = $user_role ="";

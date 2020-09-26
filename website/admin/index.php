@@ -6,7 +6,7 @@
  */
 
 session_start();
-include '../config.php';
+include 'config/config.php';
 $new_sql = mysqli_query($link, "SELECT * FROM users WHERE USER_ID ='" . $_SESSION['id'] . "'");
 $username = mysqli_fetch_array($new_sql);
 

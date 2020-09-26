@@ -14,7 +14,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 // Include config file from the root directory
-require_once "../config.php";
+require_once "config/config.php";
 
 // Set the variables to empty
 $password = $username = "";

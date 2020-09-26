@@ -1,5 +1,5 @@
 <?php include './_layouts/_layout-header.php';
-include_once '../config.php';
+include_once 'config/config.php';
 $result = mysqli_query($link, "SELECT * FROM users WHERE USER_ID='" . $_SESSION['id'] . "'");
 $row = mysqli_fetch_array($result);
 ?>
