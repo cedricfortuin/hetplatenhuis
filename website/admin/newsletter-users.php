@@ -198,7 +198,6 @@ $username = mysqli_fetch_array($new_sql);
                                             <select class="form-control" name="admin-name"
                                                     id="inputArtist" autocomplete="off">
                                                 <?php
-                                                include_once '../config.php';
                                                 $admin = mysqli_query($link, "SELECT USER_FIRSTNAME FROM users ORDER BY USER_ID ASC");
                                                 $i = 0;
                                                 while ($admin_item = mysqli_fetch_array($admin)) {
