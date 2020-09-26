@@ -18,10 +18,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
     <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/brands.min.css">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/regular.min.css">
-    <link rel="stylesheet" href="assets/fontawesome-free/css/solid.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 <!--    Google ads-->
     <script data-ad-client="ca-pub-5206885279475064" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -85,28 +81,28 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands" href="#Home">home</a></li>
+                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="#Home">home</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands" href="#about">over ons</a></li>
+                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="#about">over ons</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands" href="#contact">contact</a></li>
+                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="#contact">contact</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands" href="pages/bands.html">artiesten</a>
+                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/bands.html">artiesten</a>
                 </li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands" href="pages/blogs.php">blogs</a></li>
-                <li class="nav-item dropdown nav-link" role="presentation">
-                    <div class="nav-item dropdown no-arrow">
-                        <a class="dropdown-toggle nav-link"
-                           data-toggle="dropdown" aria-expanded="false"
-                           href="#">HiFi</a>
-                        <div class="dropdown-menu dropdown-menu-right mt-2" role="table" id="hifi-dropdown">
-                            <a class="dropdown-item text-uppercase" href="#">Audio</a>
-                            <a class="dropdown-item text-uppercase" href="#">Vinyl</a>
-                            <a class="dropdown-item text-uppercase" href="#" >Digitaal</a>
-                        </div>
-                    </div>
-                </li>
+                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/updates.php">Updates</a></li>
+<!--                <li class="nav-item dropdown nav-link" role="presentation">-->
+<!--                    <div class="nav-item dropdown no-arrow">-->
+<!--                        <a class="dropdown-toggle nav-link"-->
+<!--                           data-toggle="dropdown" aria-expanded="false"-->
+<!--                           href="#">HiFi</a>-->
+<!--                        <div class="dropdown-menu dropdown-menu-right mt-2" role="table" id="hifi-dropdown">-->
+<!--                            <a class="dropdown-item text-uppercase" href="#">Audio</a>-->
+<!--                            <a class="dropdown-item text-uppercase" href="#">Vinyl</a>-->
+<!--                            <a class="dropdown-item text-uppercase" href="#" >Digitaal</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
             </ul>
         </div>
     </div>
@@ -146,7 +142,7 @@
                 <h2>Nummer van de dag:</h2>
                 <table class="table table-borderless" style="color: white">
                     <?php
-                    include_once('config.php');
+                    include_once('admin/config/config.php');
                     $result = mysqli_query($link, "SELECT * FROM songofday ORDER BY SONG_ID DESC");
                     $row = mysqli_fetch_array($result)
                     ?>
@@ -158,11 +154,6 @@
                     <tr>
                         <td>
                             <?php echo $row["SPOTIFY_LINK"]; ?>
-                        </td>
-                    </tr>
-                    <tr class="row">
-                        <td class="col-md-6 mx-auto">
-                            <?php echo $row["SONG_REASON"]; ?>
                         </td>
                     </tr>
                     </tbody>
@@ -179,31 +170,39 @@
                 <p>Voel je vrij om ons te volgen op Instagram of een mailtje te sturen!
                     <br><small>Wil je een plaat kopen of verkopen? Stuur ons dan een mailtje. We reageren dan zo snel
                         mogelijk. <br>(Je mail wordt <u>niet</u> gebruikt voor reclame).</small></p>
-                <ul class="list-inline banner-social-buttons">
-                    <li class="list-inline-item">&nbsp;<a href="https://www.instagram.com/hetplatenhuis/"
-                                                          target="_blank">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name"
-                                                                                style="font-size: 15px;">instagram</span>
-                            </button>
-                        </a></li>
-                    <li class="list-inline-item">&nbsp;<a href="https://www.facebook.com/hetplatenhuis" target="_blank">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name"
-                                                                               style="font-size: 15px;">Facebook</span>
-                            </button>
-                        </a></li>
-                    <li class="list-inline-item">&nbsp;<a href="mailto:info@hetplatenhuis.nl">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name" style="font-size: 15px;">email</span>
-                            </button>
-                        </a></li>
-                    <br><br>
-                    <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a class="js-scroll-trigger"
-                                                                                           href="#Home">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><i
-                                        class="fa fa-arrow-up fa-fw"></i><span class="network-name"
-                                                                               style="font-size: 70%">&nbsp;Naar boven</span>
-                            </button>
-                        </a></li>
-                </ul>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-2 mb-2">
+                <a href="https://www.instagram.com/hetplatenhuis/" target="_blank">
+                    <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name text-capitalize"
+                                                                                           style="font-size: 15px;"><i class="fab fa-instagram"></i>&nbsp;instagram</span>
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-2 mb-2">
+                <a href="https://www.facebook.com/hetplatenhuis" target="_blank">
+                    <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name text-capitalize"
+                                                                                           style="font-size: 15px;"><i class="fab fa-facebook"></i>&nbsp;Facebook</span>
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-2 mb-2">
+                <a href="mailto:info@hetplatenhuis.nl">
+                    <button class="btn btn-primary btn-lg btn-default" type="button"><span class="network-name text-capitalize" style="font-size: 15px;"><i class="fas fa-at"></i>&nbsp;email</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="d-inline-flex mt-5 mb-0">
+            <div>
+                <a class="js-scroll-trigger"
+                   href="#Home">
+                    <button class="btn btn-primary btn-lg btn-default" type="button"><i
+                                class="fa fa-arrow-up fa-fw"></i><span class="network-name text-capitalize"
+                                                                       style="font-size: 70%">&nbsp;Naar boven</span>
+                    </button>
+                </a>
             </div>
         </div>
     </div>

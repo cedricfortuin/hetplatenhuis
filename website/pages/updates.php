@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Het PlatenHuis - Blogs</title>
+    <title>Het PlatenHuis - Updates</title>
     <meta name="description" content="Het PlatenHuis - de website waar je leest over verschillende bands, artiesten en albums. Volg ons op instagram om
         om up to date te blijven. Stuur voor vragen, opmerkingen of suggesties een mailtje naar info@hetplatenhuis.nl"/>
     <meta name="keywords"
@@ -35,16 +35,15 @@
 <body id="page-top">
 <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav"
      style="backdrop-filter: opacity(30%)">
-    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.php">HET PLATENHUIS - blogs</a>
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.php">HET PLATENHUIS - updates</a>
         <button data-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive"
                 type="button" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger" href="../index.php"><i
-                                class="fa fa-reply fa-fw"></i>
-                        terug naar het homescherm</a></li>
+                <li class="nav-item nav-link js-scroll-trigger text-capitalize" role="presentation"><a
+                            class="nav-link js-scroll-trigger" href="../index.php"><i
+                                class="fa fa-reply fa-fw"></i>&nbsp;terug</a></li>
             </ul>
         </div>
     </div>
@@ -55,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="brand-heading" style="font-size: calc(1em + 4vw);">Blogs</h2>
+                    <h2 class="brand-heading" style="font-size: calc(1em + 4vw);">updates</h2>
                     <p>Lees hier alle updates over de website, het Instagram account of andere dingen!</p>
                 </div>
             </div>
@@ -63,7 +62,7 @@
     </div>
 </header>
 <section id="blogs" class="content-section">
-    <?php include_once '../config.php';
+    <?php include_once '../admin/config/config.php';
     $result = mysqli_query($link, "SELECT * FROM posts ORDER BY POST_ID DESC")
     ?>
     <div class="container">
@@ -113,7 +112,7 @@
                     <br><br>
                     <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a class="js-scroll-trigger"
                                                                                            href="#Home">
-                            <button class="btn btn-primary btn-lg btn-default" type="button"><i
+                            <button class="btn btn-primary btn-lg btn-default text-capitalize" type="button"><i
                                         class="fa fa-arrow-up fa-fw"></i><span class="network-name"
                                                                                style="font-size: 70%">&nbsp;Naar boven</span>
                             </button>
