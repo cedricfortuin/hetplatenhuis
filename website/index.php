@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="Het PlatenHuis - de website waar je leest over verschillende bands, artiesten en albums. Volg ons op instagram om
-        om up to date te blijven. Stuur voor vragen, opmerkingen of suggesties een mailtje naar info@hetplatenhuis.nl"/>
+        om up to date te blijven."/>
     <meta name="keywords"
           content="Platen, muziek, Pink Floyd, ELO, Prince, albums, Dire Straits, Supertramp, vinyl, Queen, Normaal, George Michael, Michael Jackson, Eminem, lp, cd, cassette">
-    <meta name="author" content="Cedric Fortuin">
+    <meta name="author" content="Cedric Fortuin, Leon Lammersen">
     <meta name="google-site-verification" content="3RtN2T3y_4YVjvsdhceBu4iNetvqlKrhQX089BeY7Eg" />
 
     <!--    Link tags-->
@@ -91,18 +91,6 @@
                 </li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                             class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/updates.php">Updates</a></li>
-<!--                <li class="nav-item dropdown nav-link" role="presentation">-->
-<!--                    <div class="nav-item dropdown no-arrow">-->
-<!--                        <a class="dropdown-toggle nav-link"-->
-<!--                           data-toggle="dropdown" aria-expanded="false"-->
-<!--                           href="#">HiFi</a>-->
-<!--                        <div class="dropdown-menu dropdown-menu-right mt-2" role="table" id="hifi-dropdown">-->
-<!--                            <a class="dropdown-item text-uppercase" href="#">Audio</a>-->
-<!--                            <a class="dropdown-item text-uppercase" href="#">Vinyl</a>-->
-<!--                            <a class="dropdown-item text-uppercase" href="#" >Digitaal</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </li>-->
             </ul>
         </div>
     </div>
@@ -207,34 +195,6 @@
         </div>
     </div>
 </section>
-<!-- Load Facebook SDK for JavaScript -->
-<!--<div id="fb-root"></div>-->
-<!--<script>-->
-<!--    window.fbAsyncInit = function () {-->
-<!--        FB.init({-->
-<!--            xfbml: true,-->
-<!--            version: 'v8.0'-->
-<!--        });-->
-<!--    };-->
-<!---->
-<!--    (function (d, s, id) {-->
-<!--        var js, fjs = d.getElementsByTagName(s)[0];-->
-<!--        if (d.getElementById(id)) return;-->
-<!--        js = d.createElement(s);-->
-<!--        js.id = id;-->
-<!--        js.src = 'https://connect.facebook.net/nl_NL/sdk/xfbml.customerchat.js';-->
-<!--        fjs.parentNode.insertBefore(js, fjs);-->
-<!--    }(document, 'script', 'facebook-jssdk'));</script>-->
-<!---->
-<!-- Your Chat Plugin code -->
-<!--<div class="fb-customerchat"-->
-<!--     attribution=install_email-->
-<!--     page_id="101137895048555"-->
-<!--     theme_color="#42dca3"-->
-<!--     logged_in_greeting="Hoi, hoe kunnen we je helpen?"-->
-<!--     logged_out_greeting="Hoi, hoe kunnen we je helpen?">-->
-<!--</div>-->
-
 <footer>
     <div class="container text-center">
         <p>Copyright © <a href="mailto:info@hetplatenhuis.nl">HetPlatenHuis</a> || 2020</p>
