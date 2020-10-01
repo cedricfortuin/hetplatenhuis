@@ -1,6 +1,6 @@
 <footer class="bg-white sticky-footer">
     <div class="container my-auto">
-        <div class="text-center my-auto copyright"><span>Copyright © 2020 bij Het Platenhuis</span></div>
+        <div class="text-center my-auto copyright"><span>Copyright © 2020 bij <a href="https://hetplatenhuis.nl/">Het Platenhuis</a></span></div>
     </div>
 </footer>
 </div>
