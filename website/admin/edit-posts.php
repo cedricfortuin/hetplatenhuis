@@ -28,13 +28,13 @@
                                             <label for="firstname">Titel</label>
                                             <input id="firstname" type="text" name="title-edit" autocomplete="off"
                                                    class="form-control"
-                                                   placeholder="Huidig: <?php echo $row['POST_TITLE']; ?>" required>
+                                                   value="<?php echo $row['POST_TITLE']; ?>" required>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="lastname">Auteur</label>
                                             <input id="lastname" type="text" name="author-edit" autocomplete="off"
                                                    class="form-control"
-                                                   placeholder="Huidig: <?php echo $row['POST_TEXT']; ?>" required>
+                                                   value="<?php echo $row['POST_TEXT']; ?>" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -42,8 +42,7 @@
                                             <label for="username">Text</label>
                                             <textarea id="username" style="height: auto;" type="text" name="text-edit"
                                                       autocomplete="off" class="form-control"
-                                                      placeholder="Huidig: <?php echo $row['POST_AUTHOR']; ?>"
-                                                      required></textarea>
+                                                      required><?php echo $row['POST_AUTHOR']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
