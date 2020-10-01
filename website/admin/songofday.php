@@ -16,6 +16,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
+if($username['USER_ROLE'] == 3)
+{
+    header('location: no-permission.php');
+    exit;
+}
 
 $mysqli = $link;
 

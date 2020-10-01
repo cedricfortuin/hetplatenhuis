@@ -15,6 +15,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 include 'config/config.php';
 $new_sql = mysqli_query($link, "SELECT * FROM users WHERE USER_ID ='" . $_SESSION['id'] . "'");
 $username = mysqli_fetch_array($new_sql);
+
+if($username['USER_ROLE'] == 3)
+{
+    header('location: no-permission.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>

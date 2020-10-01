@@ -43,7 +43,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label for="username">Gebruikersrol</label>
-                                                    <input id="username" type="number" name="userrole-edit" min="1" max="2" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_ROLE']; ?>" required>
+                                                    <input id="username" type="number" name="userrole-edit" min="1" max="3" minlength="1" maxlength="1" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_ROLE']; ?>" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
