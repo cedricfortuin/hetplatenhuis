@@ -2,32 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/website/assets/bootstrap/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Dire-Straits.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Dire-Straits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Normaal.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Normaal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Wish-You-Were-Here.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Wish-You-Were-Here.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/bands.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/bands.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/blogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/blogs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/queen.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/queen.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/platenhuis-laravel/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -240,6 +224,7 @@
       <workItem from="1600151585564" duration="15000" />
       <workItem from="1600186788782" duration="927000" />
       <workItem from="1600806082769" duration="3127000" />
+      <workItem from="1601570348950" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space.">
       <created>1598272171945</created>
