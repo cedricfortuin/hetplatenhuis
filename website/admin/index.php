@@ -56,42 +56,44 @@ $version = '1.4.3';
                 return i;
             }
 
-            var countDownDate = new Date("December 25, 2020 00:00:00").getTime();
-            var x = setInterval(function() {
-                var now = new Date().getTime();
-                var distance = countDownDate - now;
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                if (days == 1) {
-                    $dagen = "dag";
-                }
-                else {
-                    $dagen = "dagen";
-                }
-                if (minutes == 1) {
-                    $minuten = "minuut";
-                }
-                else {
-                    $minuten = "minuten";
-                }
-                if (seconds == 1) {
-                    $secondes = "seconde";
-                }
-                else {
-                    $secondes = "secondes";
-                }
-                document.getElementById("countDown").innerHTML = days + " " + $dagen + ", " + hours + " uur, "
-                    + minutes + " " + $minuten + " en " + seconds + " " + $secondes;
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("demo").innerHTML = "HOERA WE ZIJN ONLINE";}
-            }, 1000);
+            function christmasTime(){
+                var countDownDate = new Date("December 25, 2020 00:00:00").getTime();
+                var x = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = countDownDate - now;
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    if (days == 1) {
+                        $dagen = "dag";
+                    }
+                    else {
+                        $dagen = "dagen";
+                    }
+                    if (minutes == 1) {
+                        $minuten = "minuut";
+                    }
+                    else {
+                        $minuten = "minuten";
+                    }
+                    if (seconds == 1) {
+                        $secondes = "seconde";
+                    }
+                    else {
+                        $secondes = "secondes";
+                    }
+                    document.getElementById("countDown").innerHTML = days + " " + $dagen + ", " + hours + " uur, "
+                        + minutes + " " + $minuten + " en " + seconds + " " + $secondes;
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("demo").innerHTML = "HOERA WE ZIJN ONLINE";}
+                }, 1000);
+            }
         </script>
     </head>
 
-<body id="page-top" onload="startTime()">
+<body id="page-top" onload="startTime(); christmasTime()">
 <div id="wrapper">
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
         <div class="container-fluid d-flex flex-column p-0">
@@ -177,7 +179,7 @@ $version = '1.4.3';
                         </div>
                         <div class="col-md-8">
                             <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                                <h3 class="text-dark mb-0">Dashboard<br/><small>Het is nog <span id="countDown"></span> tot Kerst!</small></h3>
+                                <h3 class="text-dark mb-0">Dashboard<br/><small>Het is nog <span id="countDown"></span> tot Kerst!&nbsp;<i class="fa fa-sleigh"></i></small></h3>
                             </div>
                             <p><?php echo "Welkom " . $username['USER_FIRSTNAME']; ?> bij het admin-paneel. Hier kun je
                                 als admin het volgende doen: </p>
