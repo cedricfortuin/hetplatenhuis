@@ -146,7 +146,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <p>Check hier de complete <a href="https://open.spotify.com/playlist/5lJdNioaNWk8boL9EIezS5?si=l1VEfDDnRXiJsNzL2qr2_w">Spotify lijst</a>.</p>
+                            <p>Check hier de complete <a href="https://open.spotify.com/playlist/5lJdNioaNWk8boL9EIezS5?si=l1VEfDDnRXiJsNzL2qr2_w" target="_blank">Spotify lijst</a>.</p>
                         </td>
                     </tr>
                     </tbody>
