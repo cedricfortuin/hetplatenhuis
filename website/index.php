@@ -87,7 +87,7 @@
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                             class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="#contact">contact</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/bands.html">artiesten</a>
+                            class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/artiesten.html">artiesten</a>
                 </li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                             class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/updates.php">Updates</a></li>
