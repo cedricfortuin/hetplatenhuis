@@ -1,4 +1,4 @@
-<?php include '_layouts/_layout-header.php'
+<?php include '_layouts/_layout-nopage.phtml';
 ?>
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content">
@@ -57,4 +57,4 @@
                 </section>
             </div>
         </div>
-    <?php include '_layouts/_layout-footer.php'?>
+    <?php include '_layouts/_layout-footer.phtml' ?>

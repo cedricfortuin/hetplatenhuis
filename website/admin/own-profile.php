@@ -1,4 +1,4 @@
-<?php include '_layouts/_layout-header.php'?>
+<?php include '_layouts/_layout-nopage.phtml';?>
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <div class="container">
@@ -27,21 +27,21 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="firstname">Voornaam</label>
-                                                    <input id="firstname" type="text" name="firstname-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_FIRSTNAME']; ?>" required>
+                                                    <input id="firstname" type="text" name="firstname-edit" autocomplete="off" class="form-control" value="<?php echo $row['USER_FIRSTNAME']; ?>" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="lastname">Achternaam</label>
-                                                    <input id="lastname" type="text" name="lastname-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_LASTNAME']; ?>" required>
+                                                    <input id="lastname" type="text" name="lastname-edit" autocomplete="off" class="form-control" value="<?php echo $row['USER_LASTNAME']; ?>" required>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="username">Gebruikersnaam</label>
-                                                    <input id="username" type="text" name="username-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USERNAME']; ?>" required>
+                                                    <input id="username" type="text" name="username-edit" autocomplete="off" class="form-control" value="<?php echo $row['USERNAME']; ?>" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="email">Email</label>
-                                                    <input id="email" type="text" name="email-edit" autocomplete="off" class="form-control" placeholder="Huidig: <?php echo $row['USER_EMAIL']; ?>" required>
+                                                    <input id="email" type="text" name="email-edit" autocomplete="off" class="form-control" value="<?php echo $row['USER_EMAIL']; ?>" required>
                                                 </div>
                                             </div>
                                             <hr>
@@ -58,4 +58,4 @@
                 </section>
             </div>
         </div>
-<?php include '_layouts/_layout-footer.php'?>
+<?php include '_layouts/_layout-footer.phtml' ?>

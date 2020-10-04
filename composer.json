@@ -1,0 +1,5 @@
+{
+    "require": {
+        "gerardojbaez/messenger": "^1.1"
+    }
+}
