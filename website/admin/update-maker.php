@@ -22,7 +22,7 @@ if($username['USER_ROLE'] == 3)
     exit;
 }
 
-include '_layouts/_layout-header.php';
+include '_layouts/_layout-header.phtml';
 ?>
             <section class="content-section" style="color: black;">
                 <div class="container">
@@ -106,4 +106,4 @@ include '_layouts/_layout-header.php';
                 </div>
             </section>
         </div>
-<?php include '_layouts/_layout-footer.php'?>
+<?php include '_layouts/_layout-footer.phtml' ?>

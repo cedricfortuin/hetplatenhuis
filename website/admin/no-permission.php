@@ -1,4 +1,4 @@
-<?php include './_layouts/_layout-header.php';
+<?php include '_layouts/_layout-nopage.phtml';
 include_once 'config/config.php';
 $result = mysqli_query($link, "SELECT * FROM users WHERE USER_ID='" . $_SESSION['id'] . "'");
 $row = mysqli_fetch_array($result);
@@ -26,4 +26,4 @@ $row = mysqli_fetch_array($result);
             </section>
         </section>
     </div>
-<?php include './_layouts/_layout-footer.php' ?>
+<?php include './_layouts/_layout-footer.phtml' ?>

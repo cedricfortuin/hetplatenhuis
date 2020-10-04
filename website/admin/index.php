@@ -15,7 +15,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
-include '_layouts/_layout-header.php';
+include '_layouts/_layout-header.phtml';
 ?>
         <div class="container-fluid">
             <section class="content-section" style="color: black;">
@@ -98,17 +98,10 @@ include '_layouts/_layout-header.php';
 
                     <div class="container">
                         <div class="row">
-                            <?php
-                            $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-                            $uri_segments = explode('/', $uri_path);
-
-                            echo $uri_segments[4];
-
-                            ?>
                         </div>
                     </div>
                 </section>
             </section>
         </div>
     </div>
-<?php include './_layouts/_layout-footer.php' ?>
+<?php include './_layouts/_layout-footer.phtml' ?>

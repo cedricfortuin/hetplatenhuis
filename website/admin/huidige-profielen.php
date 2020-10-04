@@ -6,7 +6,7 @@
  */
 
 session_start();
-include('config/config.php');
+include 'config/config.php';
 $new_sql = mysqli_query($link,  "SELECT * FROM users WHERE USER_ID ='". $_SESSION['id'] ."'");
 $username = mysqli_fetch_array($new_sql);
 
@@ -18,9 +18,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 $result = mysqli_query($link, "SELECT * FROM users ORDER BY USER_ID ASC");
 
-include '_layouts/_layout-header.php';
+include '_layouts/_layout-header.phtml';
 ?>
-            <!--Ignore this error-->
             <section class="content-section">
                 <div class="container">
                     <div class="row">
@@ -83,5 +82,5 @@ include '_layouts/_layout-header.php';
                         </div>
                     </div>
                 </div>
-            </div>
-<?php include '_layouts/_layout-footer.php' ?>
+            </section>
+<?php include '_layouts/_layout-footer.phtml' ?>

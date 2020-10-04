@@ -144,6 +144,12 @@
                             <?php echo $row["SPOTIFY_LINK"]; ?>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <p>Check hier de complete <a href="https://open.spotify.com/playlist/5lJdNioaNWk8boL9EIezS5?si=l1VEfDDnRXiJsNzL2qr2_w">Spotify lijst</a></p>
+                            <iframe src="https://open.spotify.com/embed/playlist/5lJdNioaNWk8boL9EIezS5" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

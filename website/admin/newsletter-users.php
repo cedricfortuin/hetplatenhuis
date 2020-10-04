@@ -21,7 +21,7 @@ if($username['USER_ROLE'] != 1)
     $disabled = 'disabled';
 }
 
-include '_layouts/_layout-header.php';
+include '_layouts/_layout-header.phtml';
 ?>
             <section class="content-section">
                 <?php
@@ -115,4 +115,4 @@ include '_layouts/_layout-header.php';
                 </div>
             </section>
         </div>
-<?php include '_layouts/_layout-footer.php'?>
+<?php include '_layouts/_layout-footer.phtml' ?>

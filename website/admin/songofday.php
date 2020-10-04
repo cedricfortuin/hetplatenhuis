@@ -15,32 +15,27 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
-$disabled = '';
-
 if($username['USER_ROLE'] != 1)
 {
     $disabled = 'disabled';
+} else {
+    $disabled = '';
 }
 
-$mysqli = $link;
-
 // Get the total number of records from our table "students".
-$total_pages = $mysqli->query('SELECT * FROM songofday')->num_rows;
-
+$total_pages = $link->query('SELECT * FROM songofday')->num_rows;
+$num_results_on_page = 4;
 // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
-
-// Number of results to show on each page.
-$num_results_on_page = 4;
-
-include '_layouts/_layout-header.php';
-if ($stmt = $mysqli->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT ?,?')) {
+include '_layouts/_layout-header.phtml';
+if ($stmt = $link->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);
     $stmt->execute();
     // Get the results...
     $result = $stmt->get_result();?>
+
     <div class="container-fluid">
         <section class="content-section">
             <div class="container">
@@ -91,12 +86,10 @@ if ($stmt = $mysqli->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMI
                         <?php endif; ?>
                     </div>
                     <div class="form col-4">
-                        <form class="form mx-auto" method="post">
-                            <div class="form-row col-12">
-                            </div>
+                        <form class="form mx-auto" method="post" action="">
                             <div class="form-row col-12 text-center">
                                 <div class="form-group">
-                                    <p for="count">Aantal items per tab: <?php echo $num_results_on_page?> items</p>
+                                    <label for="inputName">Aantal items per tab: <?php echo $num_results_on_page?> items</label>
                                 </div>
                             </div>
                         </form>
@@ -158,4 +151,4 @@ if ($stmt = $mysqli->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMI
     $stmt->close();
 }
 
-include './_layouts/_layout-footer.php' ?>
+include './_layouts/_layout-footer.phtml' ?>
