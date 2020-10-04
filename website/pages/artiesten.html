@@ -8,7 +8,7 @@
     <meta name="keywords"
           content="Platen, muziek, Pink Floyd, ELO, Prince, albums, Dire Straits, Supertramp, vinyl, Queen, Normaal, George Michael, Michael Jackson, Eminem, lp, cd, cassette">
     <meta name="author" content="Cedric Fortuin">
-    <title>Het PlatenHuis - Bands/Artiesten</title>
+    <title>Het PlatenHuis - Artiesten</title>
     <link rel="shortcut icon" href="../assets/img/functional/song.png" type="image/x-icon"/>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <meta name="referrer" content="strict-origin" />
@@ -83,7 +83,7 @@
     <div class="container h-100">
         <div class="d-flex justify-content-end h-100">
             <div class="searchbar">
-                <input class="searchInput" type="text" id="searchInput" name="" placeholder="Zoeken naar bands en artiesten" onkeyup="myFunction()" onfocus="this.value='';myFunction()">
+                <input class="searchInput" type="text" id="searchInput" name="" placeholder="Zoeken naar bands en artiesten" onkeyup="makeSearchBar()" onfocus="this.value='';makeSearchBar()">
                 <p class="searchInputIcon"><i class="fa fa-search"></i></p>
             </div>
         </div>
@@ -93,7 +93,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <p>Zie hieronder de bands en artiesten waarvan een pagina aangemaakt is.</p>
+                <p>Zie hieronder de bands en artiesten waarvan een pagina aangemaakt is. <br/><small>Let op, niet alle pagina's zijn gevuld.</small></p>
             </div>
         </div>
         <div class="row text-center" id="bandsGallery">
@@ -160,7 +160,7 @@
         <div class="row">
             <div class="col-md-12 mx-auto text-center">
                 <ul class="nav navbar-nav ml-auto">
-                    <br><br>
+                    <br/><br/>
                     <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a class="js-scroll-trigger"
                                                                                            href="#Home">
                         <button class="btn btn-primary btn-lg btn-default text-capitalize" type="button"><i
@@ -199,7 +199,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="../assets/js/grayscale.js"></script>
 <script>
-    function myFunction() {
+    function makeSearchBar() {
         // Declare variables
         let input, filter, div, a, p, i, txtValue;
         input = document.getElementById("searchInput");
