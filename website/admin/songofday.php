@@ -41,6 +41,11 @@ if ($stmt = $link->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT 
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="form-row col-6 text-center">
+                            <div class="form-group justify-content-end">
+                                <?php echo 'Aantal nummers van de dag: ' .  $link->query('SELECT * FROM songofday')->num_rows . " nummers."?>
+                            </div>
+                        </div>
                         <table class="table" style="color: black;">
                             <tr>
                                 <th>Nummer</th>
@@ -72,8 +77,9 @@ if ($stmt = $link->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT 
                         <?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
                             <ul class="pagination list-group list-group-horizontal text-center">
                                 <?php if ($page > 1): ?>
-                                    <li class="prev"><a class="btn btn-outline-primary harry"
-                                                        href="songofday.php?page=<?php echo $page - 1 ?>">Vorige</a>
+                                    <li class="prev">
+                                        <a class="btn btn-outline-primary harry"
+                                           href="songofday.php?page=<?php echo $page - 1 ?>">Vorige</a>
                                     </li>
                                 <?php endif; ?>
                                 <?php if ($page < ceil($total_pages / $num_results_on_page)): ?>
@@ -84,15 +90,6 @@ if ($stmt = $link->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT 
                                 <?php endif; ?>
                             </ul>
                         <?php endif; ?>
-                    </div>
-                    <div class="form col-4">
-                        <form class="form mx-auto" method="post" action="">
-                            <div class="form-row col-12 text-center">
-                                <div class="form-group">
-                                    <label for="inputName">Aantal items per tab: <?php echo $num_results_on_page?> items</label>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -139,7 +136,6 @@ if ($stmt = $link->prepare('SELECT * FROM songofday ORDER BY SONG_ID DESC LIMIT 
                             </div>
                             <button type="submit" class="btn btn-outline-primary" <?php echo $disabled ?>>Updaten</button>
                             <br><br>
-                            <hr>
                         </form>
                     </div>
                 </div>

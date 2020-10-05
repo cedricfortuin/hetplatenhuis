@@ -30,57 +30,60 @@ include '_layouts/_layout-header.phtml';
                             <div>
                                 <p>Zie hier de huidige gebruikers</p>
                             </div>
-                            <table class="table" style="color:black;">
-                                <tr>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Voornaam</th>
-                                    <th scope="col">Gebruikersnaam</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <?php
-                                    if ($username['USER_ROLE'] == 1) {
-                                        echo '<th scope="col"></th>';
-                                        echo '<th scope="col"></th>';
-                                    }
+                            <div class="table-responsive">
+                                <table class="table" style="color:black;">
+                                    <tr>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Voornaam</th>
+                                        <th scope="col">Gebruikersnaam</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <?php
+                                        if ($username['USER_ROLE'] == 1) {
+                                            echo '<th scope="col"></th>';
+                                            echo '<th scope="col"></th>';
+                                        }
 
-                                    ?>
-                                </tr>
-                                <?php
-                                $i = 0;
-                                while ($row = mysqli_fetch_array($result)) {
-                                ?>
-                                <tbody style="color: black;">
-                                <tr>
-                                    <td><a href="mailto:<?php echo $row["USER_EMAIL"]; ?>"><?php echo $row["USER_EMAIL"]; ?></a></td>
-                                    <td><?php echo $row["USER_FIRSTNAME"]; ?></td>
-                                    <td><?php echo $row["USERNAME"]; ?></td>
-                                    <td></td>
-                                    <td></td>
+                                        ?>
+                                    </tr>
                                     <?php
-                                    $showAlert = false;
-                                    if($username['USER_ROLE'] == 1)
-                                    { ?>
-                                        <td><a
-                                                    href="edit-profiles.php?USER_FIRSTNAME=<?php echo $row["USER_FIRSTNAME"]; ?>">Bewerken</a></td>
-                                        <td><a
-                                                    href="delete-admin.php?USER_ID=<?php echo $row["USER_ID"]; ?>">Verwijderen</a>
-                                        </td>
-                                    <?php } else {
-                                        $showAlert = true;
+                                    $i = 0;
+                                    while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+                                    <tbody style="color: black;">
+                                    <tr>
+                                        <td><a href="mailto:<?php echo $row["USER_EMAIL"]; ?>"><?php echo $row["USER_EMAIL"]; ?></a></td>
+                                        <td><?php echo $row["USER_FIRSTNAME"]; ?></td>
+                                        <td><?php echo $row["USERNAME"]; ?></td>
+                                        <td></td>
+                                        <td></td>
+                                        <?php
+                                        $showAlert = false;
+                                        if($username['USER_ROLE'] == 1)
+                                        { ?>
+                                            <td><a
+                                                        href="edit-profiles.php?USER_FIRSTNAME=<?php echo $row["USER_FIRSTNAME"]; ?>">Bewerken</a></td>
+                                            <td><a
+                                                        href="delete-admin.php?USER_ID=<?php echo $row["USER_ID"]; ?>">Verwijderen</a>
+                                            </td>
+                                        <?php } else {
+                                            $showAlert = true;
+                                        }
+                                        ?>
+                                    </tr>
+                                    <?php
+                                    $i++;
+                                    }
+                                    if ($showAlert){
+                                        echo '<div><p class="alert alert-warning text-center alert-dismissible">Je mag helaas de beheerders niet aanpassen of verwijderen.<button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button></p></div>';
                                     }
                                     ?>
-                                </tr>
-                                <?php
-                                $i++;
-                                }
-                                if ($showAlert){
-                                    echo '<div><p class="alert alert-warning text-center alert-dismissible">Je mag helaas de beheerders niet aanpassen of verwijderen.<button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button></p></div>';
-                                }
-                                ?>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
 <?php include '_layouts/_layout-footer.phtml' ?>
