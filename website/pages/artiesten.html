@@ -17,29 +17,10 @@
     <link rel="stylesheet" href="../assets/fontawesome-free/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link href="../assets/bootstrap/css/custom.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
     <meta name="google-site-verification" content="3RtN2T3y_4YVjvsdhceBu4iNetvqlKrhQX089BeY7Eg" />
     <!--    Google ads-->
     <script data-ad-client="ca-pub-5206885279475064" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <style>
-        .bandsGallery:hover {
-            filter: opacity(40%);
-        }
-
-        body {
-            font-family: 'Varela Round', sans-serif;
-
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        body::-webkit-scrollbar {
-            display: none;
-        }
-
-        .shareButton {
-            border-radius: 50%;
-        }
-    </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F63N0SR2NN"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -62,7 +43,7 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                         class="nav-link js-scroll-trigger" href="../index.php"><i class="fa fa-reply fa-fw"></i>
-                    <span class="text-capitalize">terug</span><span class="text-lowercase"> naar homescherm</span></a></li>
+                    <span class="text-capitalize">terug</span></a></li>
             </ul>
         </div>
     </div>
@@ -82,9 +63,9 @@
 <section id="bands" class="content-section">
     <div class="container h-100">
         <div class="d-flex justify-content-end h-100">
-            <div class="searchbar">
-                <input class="searchInput" type="text" id="searchInput" name="" placeholder="Zoeken naar bands en artiesten" onkeyup="makeSearchBar()" onfocus="this.value='';makeSearchBar()">
-                <p class="searchInputIcon"><i class="fa fa-search"></i></p>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Zoeken naar..." onkeyup="makeSearchBar()" onfocus="this.value='';makeSearchBar()"/>
+                <i class="fa fa-search"></i>
             </div>
         </div>
         <br>
@@ -93,7 +74,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <p>Zie hieronder de bands en artiesten waarvan een pagina aangemaakt is. <br/><small>Let op, niet alle pagina's zijn gevuld.</small></p>
+                <p>Zie hieronder de bands en artiesten waarvan een pagina aangemaakt is. <br/><small>Let op, nog niet alle pagina's zijn gevuld.</small></p>
             </div>
         </div>
         <div class="row text-center" id="bandsGallery">
@@ -198,31 +179,7 @@
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="../assets/js/grayscale.js"></script>
-<script>
-    function makeSearchBar() {
-        // Declare variables
-        let input, filter, div, a, p, i, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        div = document.getElementById("bandsGallery");
-        a = div.getElementsByTagName("a");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < a.length; i++) {
-            p = a[i].getElementsByTagName("p")[0];
-            if (p) {
-                txtValue = p.textContent || p.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    a[i].style.display = "";
-                } else {
-                    a[i].style.display = "none";
-                }
-            }
-        }
-    }
-
-
-</script>
+<script src="../functional/functional-index.js" type="application/javascript"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>

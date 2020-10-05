@@ -1,0 +1,66 @@
+/*
+ * Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
+ */
+/*All pages*/
+body {
+    font-family: 'Varela Round', sans-serif;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+/*==============================*/
+
+/*Index.php*/
+#tableRecords {
+    backdrop-filter: opacity(10%);
+    border-radius: 10px;
+}
+
+.buttonBands {
+    border: none;
+}
+
+.buttonBands:hover {
+    background-color: rgba(88, 88, 88, 0.3);
+}
+
+#hifi-dropdown {
+    border-radius: 5px;
+    background-color: transparent;
+    backdrop-filter: opacity(40%);
+    border: none;
+}
+
+#hifi-dropdown a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+/*==============================*/
+
+/*artiesten.html*/
+.shareButton {
+    border-radius: 50%;
+}
+
+.search {
+    padding: 20px;
+}
+
+input {
+    border-radius: 3px;
+    border: none;
+    padding: 14px;
+    color: white;
+    background: transparent;
+    width: 90%;
+    font-size: 14px;
+}
+
+.fa-search {
+    position: relative;
+    left: -25px;
+}

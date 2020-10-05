@@ -14,6 +14,6 @@ $link = mysqli_connect('localhost:3306', 'DatabaseLogin-Platenhuis', 'Du2wfBtfqU
 //$link = mysqli_connect('localhost', 'root', 'root', 'hetplatenhuis' );
 
 // Check connection
-if ($link === false) {
+if (!$link) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
