@@ -1,6 +1,6 @@
 <?php
 include 'admin/config/config.php';
-$row = mysqli_fetch_array($link->query("SELECT * FROM songofday ORDER BY SONG_ID DESC"));
+$row = mysqli_fetch_array($ConnectionLink->query("SELECT * FROM songofday ORDER BY SONG_ID DESC"));
 
 $song_name = $row["SONG_NAME"];
 $song_artist = $row["SONG_ARTIST"];
