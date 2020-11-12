@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-content.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-downer.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-footer.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-head.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-header.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-navbar-artists.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-navbar.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/layouts/default-php.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/pages/page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/sql/database_insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/_layouts/_layout-index-navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/_layouts/_layout-index-navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/config/database_connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/config/database_connection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/assets/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/ACDC.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/ACDC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Dire-Straits.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Dire-Straits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Normaal.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Normaal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Pink-Floyd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/Queen.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/Queen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/pages/artiesten.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/artiesten.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/layouts/_layout-content.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/layouts/_layout-content.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/pages/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/pages/page.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +233,9 @@
       <workItem from="1602579507089" duration="230000" />
       <workItem from="1603824551269" duration="266000" />
       <workItem from="1603824871023" duration="9000" />
-      <workItem from="1605115126444" duration="13757000" />
+      <workItem from="1605115126444" duration="13786000" />
+      <workItem from="1605180848689" duration="486000" />
+      <workItem from="1605198244422" duration="297000" />
     </task>
     <task id="LOCAL-00001" summary="Huge front end update, added the main text for Pink Floyd page, rearranged the assets folder and links, and deleted the Timeline from Pink Floyd because it took too much space.">
       <created>1598272171945</created>

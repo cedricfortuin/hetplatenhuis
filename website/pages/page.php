@@ -9,6 +9,7 @@ include 'layouts/default-php.php';
 $uuid = $_GET['page_uuid'];
 
 $getDiscoData = $ConnectionLink->query("SELECT * FROM discography WHERE ARTIST_UUID = '$uuid'");
+$getDiscoDataArray = $ConnectionLink->query("SELECT * FROM discography WHERE ARTIST_UUID = '$uuid'")->fetch_array();
 $getPageDataArray = $ConnectionLink->query("SELECT * FROM artist_info WHERE ARTIST_UUID = '$uuid'")->fetch_array();
 
 
