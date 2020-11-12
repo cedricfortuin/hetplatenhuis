@@ -85,7 +85,7 @@ $spotify_link = $row["SPOTIFY_LINK"];
         <div class="d-inline-flex mt-5 mb-0">
             <div>
                 <a class="js-scroll-trigger"
-                   href="#Home">
+                   href="#home">
                     <button class="btn btn-primary btn-lg btn-default" type="button"><i
                                 class="fa fa-arrow-up fa-fw"></i><span class="network-name text-capitalize"
                                                                        style="font-size: 70%">&nbsp;Naar boven</span>

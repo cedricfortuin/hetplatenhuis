@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
 }
 /*==============================*/
 
-/*artiesten.html*/
+/*artiesten.php*/
 .shareButton {
     border-radius: 50%;
 }
@@ -63,4 +63,8 @@ input {
 .fa-search {
     position: relative;
     left: -25px;
+}
+
+.bandsGallery:hover {
+    filter: opacity(30%);
 }
