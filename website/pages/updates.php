@@ -83,7 +83,7 @@
                     <tr>
                         <td><?php echo $row["UPDATE_TITLE"]; ?></td>
                         <td><?php echo $row["UPDATE_AUTHOR"]; ?></td>
-                        <td><?php echo $row["UPDATE_DATE"]; ?></td>
+                        <td><?php echo $row["UPDATE_CREATED_AT"]; ?></td>
                         <td><?php echo $row["UPDATE_TEXT"]; ?></td>
                     </tr>
                     <?php

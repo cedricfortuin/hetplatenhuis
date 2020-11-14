@@ -6,3 +6,4 @@ website/admin/config/config.php
 .idea/workspace.xml
 .idea/dataSources/c799f9c0-7928-4130-b0fb-01728be1d84c/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
 .idea/workspace.xml
+*.xml
