@@ -81,21 +81,34 @@ $spotify_link = $row["SPOTIFY_LINK"];
 <section id="contact" class="content-section text-center">
     <div class="container">
         <div class="row mb-5 <?php echo ($getNewsletterEnableArray['CONFIG_VALUE'] == 1)? '' : 'd-none'?>">
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-6 mx-auto">
                 <p>Schrijf je nu in voor de nieuwsbrief en krijg te gekke updates over muziek, artiesten en meer!</p>
                 <form>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group text-left">
                                 <label for="inputName">Hoe mogen we je noemen?</label>
-                                <input type="text" class="form-control" id="inputName" placeholder="Je naam">
+                                <input type="text" class="form-control" id="inputName" placeholder="Je naam" name="inputEmail">
+                                <p class="invalid-feedback">Dit veld is verplicht.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group text-left">
-                                <label for="inputEmail">Email address</label>
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">(Je mail wordt <u>niet</u> gebruikt voor reclame).</small>
+                                <label for="inputEmail">Hoe kunnen we je bereiken?</label>
+                                <?php $email_err = 'is-invlid';?>
+                                <input type="email" class="form-control <?php echo $email_err?>" id="inputEmail" placeholder="Je email" name="inputEmail">
+                                <?php
+                                if ($email_err == 'is-invalid') {
+                                    ?>
+                                        <p class="invalid-feedback">Dit veld is verplicht.</p>
+                                    <?php
+                                } else {
+                                    ?>
+                                        <small id="inputEmail" class="form-text text-muted">(Je mail wordt <u>niet</u> gebruikt voor reclame)</small>
+                                    <?php
+                                }
+
+                                ?>
                             </div>
                         </div>
                     </div>
