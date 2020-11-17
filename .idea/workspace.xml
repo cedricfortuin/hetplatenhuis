@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c5442a8b-2033-4608-84c1-75043017cc9d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/admin/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/admin/_layouts/_layout-userlayout.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/website/admin/_layouts/_layout-userlayout.phtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
