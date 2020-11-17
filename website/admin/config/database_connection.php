@@ -12,5 +12,5 @@ define('EXTERNAL_DATABASE', 'DATABASE_PLATENHUIS');
 //These strings are for the local database
 define ('LOCAL_HOST', 'localhost');
 define('LOCAL_USER', 'root');
-define('LOCAL_PASSWORD', 'root');
+define('LOCAL_PASSWORD', '');
 define('LOCAL_DATABASE', 'hetplatenhuis');
