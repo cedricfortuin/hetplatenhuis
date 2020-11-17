@@ -1,5 +1,4 @@
-<?php include '_layouts/_layout-header.php'
-?>
+<?php include '_layouts/_layout-nopage.phtml';?>
             <div class="container-fluid">
                 <section class="content-section" style="color: black;">
                     <?php
@@ -28,4 +27,4 @@
                 </section>
             </div>
         </div>
-<?php include '_layouts/_layout-footer.php'?>
+<?php include '_layouts/_layout-footer.phtml' ?>
