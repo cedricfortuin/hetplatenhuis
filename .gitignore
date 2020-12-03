@@ -1,5 +1,11 @@
 
 .idea/workspace.xml
 *.xml
-website/admin/config/config.php
 *.xml
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/hetplatenhuis.iml
+*.xml
+*.iml
+.idea/workspace.xml
