@@ -13,7 +13,13 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    // App configuration
+    'name' => env('APP_NAME', 'Het Platenhuis'),
+    'description' => env('APP_DESCRIPTION', 'Het Platenhuis'),
+    'keywords' => env('APP_KEYWORDS', 'Platen, vinyl, muziek'),
+    'authors' => env('APP_AUTHORS', 'Cedric Fortuin'),
+    'google_site_key' => env('APP_GOOGLE_SITE_CODE', 'xxXXxx'),
+
 
     /*
     |--------------------------------------------------------------------------

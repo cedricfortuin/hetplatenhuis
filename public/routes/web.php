@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/laravel', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/artiesten', function () {
+    return view('artists');
+});
+
+Route::fallback(function() {
+    return view('index');
 });
 
 Auth::routes();
