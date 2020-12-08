@@ -13,3 +13,6 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
+
+admin/config/config.php
+admin/config/database_connection.php
