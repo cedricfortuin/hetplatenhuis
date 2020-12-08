@@ -13,3 +13,6 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
+
+# DELETE THIS BEFORE MERGING
+./website/admin/config/config.php
