@@ -1,7 +1,6 @@
 <!--
   ~ Copyright © 2020 bij Het Platenhuis en Cedric Fortuin. Niks uit deze website mag zonder toestemming gebruikt, gekopieerd en/of verwijderd worden. Als je de website gebruikt ga je akkoord met onze gebruiksvoorwaarden en privacy.
   -->
-
 <nav class="navbar navbar-light navbar-expand-lg navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container"><a class="navbar-brand js-scroll-trigger" href="#home">HET PLATENHUIS</a>
         <button data-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive"
@@ -16,9 +15,11 @@
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                         class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="#contact">contact</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
-                        class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/artiesten.html">artiesten</a></li>
+                        class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/artiesten.php">artiesten</a></li>
                 <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a
                         class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="pages/updates.php">Updates</a></li>
+                <li class="nav-item nav-link js-scroll-trigger <?php echo ($getMyPHEnableArray['CONFIG_VALUE'] == 1)? '' : 'd-none' ?>" role="presentation"><a
+                        class="nav-link active js-scroll-trigger buttonBands text-capitalize" href="#">Mijn Platenhuis</a></li>
 <!--                Optional for information about the coronavirus-->
 <!--                <li class="nav-item nav-link js-scroll-trigger" role="presentation"><a-->
 <!--                        class="nav-link active js-scroll-trigger buttonBands" href="https://rivm.nl/" target="_blank"><i class="fas fa-hands-wash"></i>&nbsp;RIVM.nl</a></li>-->
